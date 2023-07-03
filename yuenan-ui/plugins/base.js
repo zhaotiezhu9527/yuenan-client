@@ -1,6 +1,9 @@
 import Vue from "vue";
 import * as store from "plugins/store.js";
 Vue.prototype.$store = store;
+import i18n from "./lang/index";
+Vue.prototype._i18n = i18n;
+let that = i18n.vm.messages[uni.getStorageSync("lang") || "zh"];
 
 //设置缓存内容
 export const storage = (name, value) => {
@@ -25,16 +28,15 @@ export const loading = (title) => {
 };
 const PATH_URL =
   process.env.NODE_ENV === "development"
-    ? "http://192.168.4.85:9522/"//本地测试
-    // ? "http://ym.qtapi.juhai.top/" //测试
+    ? "http://192.168.4.85:9522/" //本地测试
+    // ? "http://ymqtapi.juhai.xyz/ym-qtapi-test/"" //测试
     // : "/api/";//h5打包地址
-    // : "https://www.anke9988.com/DISOZzbHUGxkbPh2/"; //杨杨a1 安科app打包地址
-    // : "/DISOZzbHUGxkbPh2/"; //杨杨a1 安科h5打包地址
-    // : "https://juhai.top/"; //阿明a2 安科app打包地址
-    // : "https://juhai.top/"; //app打包地址测试
-    // : "/ym-qtapi-test/"; //app打包地址测试
-    : "https://www.anke8888.com/lCY45gucOU2CMttF/"; //阿明a2 安科h5打包地址
-    
+    :  "https://www.anke9988.com/DISOZzbHUGxkbPh2/"; //杨杨a1 安科app打包地址
+// : "/DISOZzbHUGxkbPh2/"; //杨杨a1 安科h5打包地址
+// : "https://juhai.top/"; //阿明a2 安科app打包地址
+// : "https://juhai.top/"; //app打包地址测试
+// : "/ym-qtapi-test/"; //app打包地址测试
+// : "/lCY45gucOU2CMttF/"; //阿明a2 安科h5打包地址
 
 export const upload = (params) => {
   let header = {
@@ -73,7 +75,7 @@ export const request = (params) => {
   }
   if (params.loading) {
     uni.showLoading({
-      title: "加载中",
+      title: that.loading,
       mask: true,
     });
   }
@@ -91,11 +93,9 @@ export const request = (params) => {
             url: "/pages/login",
           });
           uni.removeStorageSync("token");
-          // show(res.data.msg);
-        }
-        else if (res.data.code != 0) {
+        } else if (res.data.code != 0) {
           uni.showToast({
-            title: res?.data?.msg || "存在网络异常",
+            title: res?.data?.msg || that.web,
             duration: 2000,
             icon: "none",
           });
@@ -103,7 +103,7 @@ export const request = (params) => {
         resolve(res);
       },
       fail: () => {
-        show("存在网络异常");
+        show(that.web);
         uni.hideLoading();
       },
     });

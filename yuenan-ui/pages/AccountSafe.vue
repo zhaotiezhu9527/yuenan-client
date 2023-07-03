@@ -2,16 +2,16 @@
   <view class="page">
     <u-navbar
       placeholder
-      title="账户安全"
+      :title="$t('AccountSafe')"
       :border="false"
       autoBack
       fixed
       safe-area-inset-top
-      bgColor="#4b80af"
+      bgColor="#f6d658"
       leftIconColor="#fff"
       leftIconSize="32"
       height="52px"
-      titleStyle="color:#fff;font-weight:500;font-size:32rpx;"
+      titleStyle="color:#000;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>
     <view class="wrap">
@@ -20,29 +20,29 @@
           <view class="image">
             <image class="icon-img2" src="../static/img/phone.png" />
           </view>
-          <label>用户名</label>
+          <label>{{ $t("userName") }}</label>
           <view class="right-text">{{ infos.userName }}</view>
         </view>
         <view class="list margintop10 borderBottom" @click="goRealName">
           <view class="image">
             <image class="icon-img" src="../static/img/admin.png" />
           </view>
-          <label>实名认证</label>
+          <label>{{ $t("idCard") }}</label>
           <view class="right-text">{{
-            infos.idCard ? "已认证" : "未认证"
+            infos.idCard ? $t("yesIdCard") : $t("noIdCard")
           }}</view>
         </view>
         <view class="list borderBottom" @click="goChangeLoginPassword">
           <view class="image">
             <image class="icon-img" src="../static/img/pass.png" />
           </view>
-          <label>修改登录密码</label>
+          <label>{{ $t("alterLoginPwd") }}</label>
         </view>
         <view class="list" @click="goModifyPaymentPassword">
           <view class="image">
             <image class="icon-img2" src="../static/img/key.png" />
           </view>
-          <label>修改支付密码</label>
+          <label>{{ $t("alterPayPwd") }}</label>
         </view>
       </view>
     </view>
@@ -57,7 +57,7 @@ export default {
     };
   },
   onShow() {
-    this.getData()
+    this.getData();
   },
   methods: {
     goRealName() {
@@ -75,12 +75,12 @@ export default {
         url: "/pages/ChangeLoginPassword",
       });
     },
-    getData(){
+    getData() {
       this.$api.user_info().then(({ data }) => {
         if (data.code == 0) {
-          this.infos = data.data
+          this.infos = data.data;
         }
-      })
+      });
     },
   },
 };

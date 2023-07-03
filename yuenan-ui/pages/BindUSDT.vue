@@ -2,31 +2,31 @@
   <view class="page">
     <u-navbar
       placeholder
-      title="绑定USDT地址"
+      :title="$t('BindUSDT')"
       :border="false"
       autoBack
       fixed
       safe-area-inset-top
-      bgColor="#4b80af"
+      bgColor="#f6d658"
       leftIconColor="#fff"
       leftIconSize="32"
       height="52px"
-      titleStyle="color:#fff;font-weight:500;font-size:32rpx;"
+      titleStyle="color:#000;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>
     <view class="wrap">
       <view v-if="bindStatus">
-        <view class="bind-title">我的USDT钱包地址</view>
+        <view class="bind-title">{{ $t("usdtAddr") }}</view>
         <view class="bind-text">{{ addr }}</view>
       </view>
       <view v-else>
-        <view class="usdt-title">请输入USDT钱包地址</view>
+        <view class="usdt-title">{{ $t("inputUsdtAddr") }}</view>
         <view class="from-input">
           <input
             type="text"
             class="input-text"
             v-model="addr"
-            placeholder="请输入USDT钱包地址"
+            :placeholder="$t('inputUsdtAddr')"
           />
         </view>
         <u-button
@@ -35,7 +35,7 @@
           @click="changeBind"
           :loading="loading"
         >
-          提交绑定
+          {{ $t("submitBind") }}
         </u-button>
       </view>
     </view>
@@ -52,13 +52,13 @@ export default {
     };
   },
   onShow() {
-    this.getInfo()
+    this.getInfo();
   },
   methods: {
     // 绑定银行卡
     changeBind() {
       if (!this.addr) {
-        return this.$base.show("请输入USDT钱包地址~");
+        return this.$base.show(this.$t("inputUsdtAddr"));
       }
       this.loading = true;
       this.$api
@@ -98,13 +98,13 @@ export default {
   }
   .bind-text {
     text-align: center;
-    color: #577fab;
+    color: #f6d658;
     font-size: 28rpx;
     font-weight: 500;
   }
   .usdt-title {
     margin: 60rpx 50rpx;
-    color: #577fab;
+    color: #f6d658;
     font-weight: 500;
     font-size: 40rpx;
   }

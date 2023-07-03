@@ -2,27 +2,27 @@
   <view class="page">
     <u-navbar
       placeholder
-      title="充值记录"
+      :title="$t('topupRecords')"
       :border="false"
       autoBack
       fixed
       safe-area-inset-top
-      bgColor="#4b80af"
+      bgColor="#f6d658"
       leftIconColor="#fff"
       leftIconSize="32"
       height="52px"
-      titleStyle="color:#fff;font-weight:500;font-size:32rpx;"
+      titleStyle="color:#000;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>
     <view class="wrap">
       <view class="title">
-        <view class="title-amount">充值金额</view>
+        <view class="title-amount">{{ $t("topupAmount") }}</view>
         <view class="line"></view>
-        <view class="title-amount">充值方式</view>
+        <view class="title-amount">{{ $t("topupType") }}</view>
         <view class="line"></view>
-        <view class="title-remark">充值时间</view>
+        <view class="title-remark">{{ $t("topupTime") }}</view>
         <view class="line"></view>
-        <view class="title-amount">状态</view>
+        <view class="title-amount">{{ $t("status") }}</view>
       </view>
       <u-list @scrolltolower="load" v-if="isArray" class="scroll">
         <u-list-item v-for="(item, index) in list" :key="index">
@@ -36,14 +36,14 @@
             <view class="table-title">{{ item.time }}</view>
             <view class="line"></view>
             <view class="table-money">{{
-              item.status ? "充值成功" : "充值失败"
+              item.status ? $t("topupSuccess") : $t("topupError")
             }}</view>
           </view>
         </u-list-item>
-        <view class="loading" v-if="loading">加载中...</view>
-        <view class="nomore" v-if="finished">没有更多了</view>
+        <view class="loading" v-if="loading">{{ $t("loading") }}...</view>
+        <view class="nomore" v-if="finished">{{ $t("finished") }}</view>
       </u-list>
-      <u-empty class="empty" text="暂无数据" v-else />
+      <u-empty class="empty" :text="$t('nodata')" v-else />
     </view>
   </view>
 </template>

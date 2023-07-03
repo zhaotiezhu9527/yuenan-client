@@ -2,16 +2,16 @@
   <view class="page">
     <u-navbar
       placeholder
-      title="注册"
+      :title="$t('register')"
       :border="false"
       autoBack
       fixed
       safe-area-inset-top
-      bgColor="#4b80af"
+      bgColor="#f6d658"
       leftIconColor="#fff"
       leftIconSize="32"
       height="52px"
-      titleStyle="color:#fff;font-weight:500;font-size:32rpx;"
+      titleStyle="color:#000;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>
     <view class="wrap">
@@ -19,7 +19,7 @@
         <image
           class="img"
           mode="widthFix"
-          src="../static/img/login_zhenhsi_logo.jpg"
+          src="../static/img/login_logo.png"
         />
       </view>
       <view class="form">
@@ -34,7 +34,7 @@
             </template>
             <u-input
               type="text"
-              placeholder="请输入注册账号"
+              :placeholder="$t('registerAccount')"
               clearable
               border="none"
               v-model="userPhone"
@@ -51,7 +51,7 @@
             </template>
             <u-input
               type="password"
-              placeholder="请输入登录密码"
+              :placeholder="$t('loginPass')"
               clearable
               border="none"
               v-model="password"
@@ -67,7 +67,7 @@
             </template>
             <u-input
               type="password"
-              placeholder="请确认登录密码"
+              :placeholder="$t('confirmLoginPwd')"
               clearable
               border="none"
               v-model="confirmLoginPwd"
@@ -83,7 +83,7 @@
             </template>
             <u-input
               type="password"
-              placeholder="请输入支付密码"
+              :placeholder="$t('inputPayPwd')"
               clearable
               border="none"
               v-model="payPwd"
@@ -99,7 +99,7 @@
             </template>
             <u-input
               type="number"
-              placeholder="邀请码ID（必填）"
+              :placeholder="$t('inviteCode')"
               clearable
               border="none"
               v-model="inviteCode"
@@ -110,14 +110,16 @@
       <view class="btns">
         <u-button
           class="btn-class"
-          color="#4b80af"
+          color="#f6d658"
           block
           @click="login"
           :loading="loading"
         >
-          注册
+          {{ $t("register") }}
         </u-button>
-        <view class="register" @click="register"> 已有账号？返回登录 </view>
+        <view class="register" @click="register">
+          {{ $t("returnLogin") }}
+        </view>
       </view>
     </view>
   </view>
@@ -142,15 +144,15 @@ export default {
   methods: {
     login() {
       if (!this.userPhone || this.userPhone.length < 6) {
-        return this.$base.show("请输入登录账号且长度大于6~");
+        return this.$base.show(this.$t("loginAccount"));
       } else if (!this.password || this.password.length < 6) {
-        return this.$base.show("请输入密码且长度大于6~");
+        return this.$base.show(this.$t("loginPass"));
       } else if (this.password != this.confirmLoginPwd) {
-        return this.$base.show("两次输入密码不一致~");
+        return this.$base.show(this.$t("twoPwd"));
       } else if (!this.payPwd || this.payPwd.length < 6) {
-        return this.$base.show("请输入支付密码且长度大于6~");
+        return this.$base.show(this.$t("payPwd"));
       } else if (!this.inviteCode || this.inviteCode.length < 6) {
-        return this.$base.show("请输入邀请码ID且长度大于6~");
+        return this.$base.show(this.$t("inviteCode"));
       }
       const DATA_OBJ = {
         loginPwd: this.password,
@@ -212,7 +214,7 @@ export default {
   padding: 40rpx 0 0;
 
   .register {
-    color: #4b80af;
+    color: #f6d658;
     font-size: 32rpx;
     margin-top: 40rpx;
   }

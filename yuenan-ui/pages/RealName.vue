@@ -2,37 +2,37 @@
   <view class="page">
     <u-navbar
       placeholder
-      title="实名认证"
+      :title="$t('idCard')"
       :border="false"
       autoBack
       fixed
       safe-area-inset-top
-      bgColor="#4b80af"
+      bgColor="#f6d658"
       leftIconColor="#fff"
       leftIconSize="32"
       height="52px"
-      titleStyle="color:#fff;font-weight:500;font-size:32rpx;"
+      titleStyle="color:#000;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>
     <view class="wrap">
       <view class="from-input">
-        <label>姓名</label>
+        <label>{{ $t("name") }}</label>
         <input
           type="text"
           :disabled="!bindStatus"
           v-model="realName"
           class="input-text"
-          placeholder="请输入真实姓名"
+          :placeholder="$t('inputRealName')"
         />
       </view>
       <view class="from-input">
-        <label>身份证号码</label>
+        <label>{{ $t("idCardNo") }}</label>
         <input
           type="text"
           :disabled="!bindStatus"
           v-model="idCardNo"
           class="input-text"
-          placeholder="请输入身份证号码"
+          :placeholder="$t('inputidCardNo')"
         />
       </view>
       <u-button
@@ -42,7 +42,7 @@
         @click="changeBind"
         :loading="loading"
       >
-        实名认证
+        {{ $t("idCard") }}
       </u-button>
     </view>
   </view>
@@ -59,7 +59,7 @@ export default {
     };
   },
   onShow() {
-    this.getInfo()
+    this.getInfo();
   },
   methods: {
     //用户列表数据
@@ -79,9 +79,9 @@ export default {
     // 实名认证
     changeBind() {
       if (!this.realName) {
-        return this.$base.show("请输入真实姓名~");
+        return this.$base.show(this.$t("inputRealName"));
       } else if (!this.idCardNo) {
-        return this.$base.show("请输入身份证号码~");
+        return this.$base.show(this.$t("inputidCardNo"));
       }
       this.loading = true;
       this.$api
