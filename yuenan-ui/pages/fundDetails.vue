@@ -2,25 +2,25 @@
   <view class="page">
     <u-navbar
       placeholder
-      title="资金明细"
+      :title="$t('fundDetails')"
       :border="false"
       autoBack
       fixed
       safe-area-inset-top
-      bgColor="#4b80af"
+      bgColor="#f6d658"
       leftIconColor="#fff"
       leftIconSize="32"
       height="52px"
-      titleStyle="color:#fff;font-weight:500;font-size:32rpx;"
+      titleStyle="color:#000;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>
     <view class="wrap">
       <view class="title">
-        <view class="title-remark">摘要</view>
+        <view class="title-remark">{{ $t("abstract") }}</view>
         <view class="line"></view>
-        <view class="title-amount">金额</view>
+        <view class="title-amount">{{ $t("sum") }}</view>
         <view class="line"></view>
-        <view class="title-time">时间</view>
+        <view class="title-time">{{ $t("dateTime") }}</view>
       </view>
       <u-list @scrolltolower="load" v-if="isArray" class="scroll">
         <u-list-item v-for="(item, index) in list" :key="index">
@@ -38,10 +38,10 @@
             <view class="table-time">{{ item.optTime }}</view>
           </view>
         </u-list-item>
-        <view class="loading" v-if="loading">加载中...</view>
-        <view class="nomore" v-if="finished">没有更多了</view>
+        <view class="loading" v-if="loading">{{ $t("loading") }}...</view>
+        <view class="nomore" v-if="finished">{{ $t("finished") }}</view>
       </u-list>
-      <u-empty class="empty" text="暂无数据" v-else />
+      <u-empty class="empty" :text="$t('nodata')" v-else />
     </view>
   </view>
 </template>

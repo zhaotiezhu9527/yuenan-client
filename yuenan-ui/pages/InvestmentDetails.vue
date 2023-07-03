@@ -2,35 +2,43 @@
   <view class="page">
     <u-navbar
       placeholder
-      title="投资详情"
+      :title="$t('investmentInfos')"
       :border="false"
       autoBack
       fixed
       safe-area-inset-top
-      bgColor="#4b80af"
+      bgColor="#f6d658"
       leftIconColor="#fff"
       leftIconSize="32"
       height="52px"
-      titleStyle="color:#fff;font-weight:500;font-size:32rpx;"
+      titleStyle="color:#000;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>
     <view class="wrap">
       <view class="details-text">
-        <view> 投资金额：{{ detailsData.amount }}元 </view>
-        <view> 预期收益：{{ detailsData.forecastReturnAmount }}元 </view>
-        <view> 投资时间：{{ detailsData.orderTime }} </view>
-        <view> 到期时间：{{ detailsData.forecastReturnTime }} </view>
-        <view> 收益方式：每日返息，到期还本 </view>
+        <view>
+          {{ $t("investmentAmount") }}：{{ detailsData.amount
+          }}{{ $t("money") }}
+        </view>
+        <view>
+          {{ $t("forecastReturnAmount") }}：{{ detailsData.forecastReturnAmount
+          }}{{ $t("money") }}
+        </view>
+        <view> {{ $t("orderTime") }}：{{ detailsData.orderTime }} </view>
+        <view>
+          {{ $t("forecastReturnTime") }}：{{ detailsData.forecastReturnTime }}
+        </view>
+        <view> {{ $t("amountType") }}：{{ $t("InterestRebate") }} </view>
       </view>
       <table class="table-data">
         <tr>
-          <th width="15%">应收本金</th>
-          <th width="15%">应收利息</th>
-          <th>应收时间</th>
-          <th>收益时间</th>
-          <th width="15%">应收总额</th>
-          <th width="13%">已支付</th>
-          <th width="10%">状态</th>
+          <th width="15%">{{ $t("receivableAmount") }}</th>
+          <th width="15%">{{ $t("receivableInterest") }}</th>
+          <th>{{ $t("receivableTime") }}</th>
+          <th>{{ $t("returnTime") }}</th>
+          <th width="15%">{{ $t("receivablelimit") }}</th>
+          <th width="13%">{{ $t("pay") }}</th>
+          <th width="10%">{{ $t("status") }}</th>
         </tr>
         <tr>
           <td>{{ detailsData.amount }}</td>
@@ -46,7 +54,9 @@
             }}
           </td>
           <td class="text-left">
-            {{ detailsData.status === 1 ? "已完成" : "待收益" }}
+            {{
+              detailsData.status === 1 ? $t("complete") : $t("loadingAmount")
+            }}
           </td>
         </tr>
       </table>

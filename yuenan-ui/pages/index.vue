@@ -8,9 +8,9 @@
       fixed
       leftIconSize="0"
       safe-area-inset-top
-      bgColor="#4b80af"
+      bgColor="#f6d658"
       height="52px"
-      titleStyle="color:#fff;font-weight:500;font-size:32rpx;"
+      titleStyle="color:#000;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>
     <view class="wrap">
@@ -47,7 +47,7 @@
           >
             <image class="img" :src="item.img" mode="widthFix" />
             <view class="name">
-              <text>保</text>
+              <text></text>
               <text>{{ item.projectName }}</text>
             </view>
             <view class="rate">
@@ -56,41 +56,47 @@
                   ><text>{{ item.incomeRate }}</text>
                   %
                 </view>
-                <view class="con">日化利率</view>
+                <view class="con">{{ $t("incomeRate") }}</view>
               </view>
               <view class="li">
                 <view class="num">
                   <text>{{ item.limitTime }}</text>
-                  分钟
+                  {{ $t("limitTime") }}
                 </view>
-                <view class="con">投资期限</view></view
+                <view class="con">{{ $t("deadline") }}</view></view
               >
               <view class="li">
                 <view class="num"
-                  >￥<text>{{ item.minAmount }}</text>
-                  元
+                  ><text>{{ item.minAmount }}</text>
+                  {{ $t("money") }}
                 </view>
-                <view class="con">起投金额</view></view
+                <view class="con">{{ $t("minAmount") }}</view></view
               >
             </view>
             <view class="investor">
               <view class="con">
-                <text>项目规模：{{ item.projectAmount }}元</text>
-                <text>每日还息：到期还本</text>
+                <text>
+                  {{ $t("scale") }}：{{ item.projectAmount }}{{ $t("money") }}
+                </text>
+                <text>{{ $t("interest") }}</text>
               </view>
-              <view class="btn">立即投资</view>
+              <view class="btn">{{ $t("investment") }}</view>
             </view>
             <view class="progress">
-              <view class="txt">项目进度：</view>
+              <view class="txt">{{ $t("progress") }}：</view>
               <u-line-progress
                 :percentage="scheduleFn(item.schedule)"
                 :showText="false"
-                activeColor="#2196f3"
+                activeColor="#f6d658"
               ></u-line-progress>
               <view class="number">{{ item.schedule }}%</view>
             </view>
           </view>
-          <u-empty class="empty2" text="暂无数据" v-if="!shopGoods.length" />
+          <u-empty
+            class="empty2"
+            :text="$t('nodata')"
+            v-if="!shopGoods.length"
+          />
         </view>
       </scroll-view>
     </view>
@@ -108,28 +114,37 @@ import img6 from "../static/img/func_icon_zhuce.png";
 import img7 from "../static/img/func_icon_kefu.png";
 import banner1 from "../static/img/banner_13.jpg";
 import banner2 from "../static/img/banner_14.jpg";
+import banner3 from "../static/img/banner_15.jpg";
 export default {
   data() {
     return {
       list: [
-        { name: "投资项目", img: img0, path: "/pages/investor" },
-        { name: "关于我们", img: img1, path: "/pages/about" },
-        { name: "计算器", img: img2 },
-        { name: "每日签到", img: img3 },
         {
-          name: "我要充值USDT",
+          name: this.$t("investmentProject"),
+          img: img0,
+          path: "/pages/investor",
+        },
+        { name: this.$t("about"), img: img1, path: "/pages/about" },
+        { name: this.$t("calculator"), img: img2 },
+        { name: this.$t("sign"), img: img3 },
+        {
+          name: this.$t("topUpUSDT"),
           img: img4,
           path: "/pages/preview",
         },
-        { name: "我要提现", img: img5, path: "/pages/withdraw" },
-        { name: "免费注册", img: img6, path: "/pages/register" },
+        { name: this.$t("mywithdraw"), img: img5, path: "/pages/withdraw" },
         {
-          name: "在线客服",
+          name: this.$t("freeRegistration"),
+          img: img6,
+          path: "/pages/register",
+        },
+        {
+          name: this.$t("onlineService"),
           img: img7,
           path: "/pages/preview",
         },
       ],
-      list2: [banner1, banner2],
+      list2: [banner1, banner2, banner3],
       shopGoods: [],
       config: {},
       infos: {},
@@ -150,33 +165,33 @@ export default {
   },
   methods: {
     change({ name, path, url }) {
-      if (["投资项目", "关于我们"].includes(name)) {
+      if ([this.$t("investmentProject"), this.$t("about")].includes(name)) {
         uni.switchTab({
           url: path,
         });
-      } else if (name === "计算器") {
-        this.$base.show("敬请期待！");
-      } else if (name === "免费注册") {
+      } else if (name === this.$t("calculator")) {
+        this.$base.show(this.$t("comingSoon") + "！");
+      } else if (name === this.$t("freeRegistration")) {
         uni.navigateTo({
           url: path,
         });
-      } else if (name === "每日签到") {
+      } else if (name === this.$t("sign")) {
         this.$api.user_sign().then(({ data }) => {
           if (data.code == 0) {
             this.$base.show(data.msg + "~");
           }
         });
-      } else if (["我要充值USDT"].includes(name)) {
+      } else if ([this.$t("topUpUSDT")].includes(name)) {
         uni.navigateTo({
           url: "/pages/onlineService",
         });
-      } else if (["在线客服"].includes(name)) {
+      } else if ([this.$t("onlineService")].includes(name)) {
         uni.navigateTo({
           url: "/pages/onlineService",
         });
-      } else if (["我要提现"].includes(name)) {
+      } else if ([this.$t("mywithdraw")].includes(name)) {
         if (!this.infos.bankCardNum && !this.infos.walletAddr) {
-          return this.$base.show("请先绑定一种提款方式~");
+          return this.$base.show(this.$t("inputwalletType"));
         } else {
           uni.navigateTo({
             url: "/pages/withdraw",
@@ -216,7 +231,7 @@ export default {
 }
 .banner {
   height: 280rpx;
-  background: #4b80af;
+  background: #f6d658;
   width: 100vw;
   border-bottom-left-radius: 50rpx;
   border-bottom-right-radius: 50rpx;

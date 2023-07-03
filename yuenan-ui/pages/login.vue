@@ -2,15 +2,15 @@
   <view class="page">
     <u-navbar
       placeholder
-      title="登录"
+      :title="$t('login')"
       :border="false"
       autoBack
       fixed
       leftIconSize="0"
       safe-area-inset-top
-      bgColor="#4b80af"
+      bgColor="#f6d658"
       height="52px"
-      titleStyle="color:#fff;font-weight:500;font-size:32rpx;"
+      titleStyle="color:#000;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>
     <view class="wrap">
@@ -18,24 +18,24 @@
         <image
           class="img"
           mode="widthFix"
-          src="../static/img/login_zhenhsi_logo.jpg"
+          src="../static/img/login_logo.png"
         />
       </view>
       <view class="from">
         <u-form ref="uForm" labelPosition="left" labelWidth="124">
-          <u-form-item label="账号">
+          <u-form-item :label="$t('account')">
             <u-input
               type="text"
-              placeholder="请输入登录账号"
+              :placeholder="$t('loginAccount')"
               clearable
               border="none"
               v-model="userPhone"
             ></u-input>
           </u-form-item>
-          <u-form-item label="密码">
+          <u-form-item :label="$t('password')">
             <u-input
               type="password"
-              placeholder="请输入登录密码"
+              :placeholder="$t('loginPass')"
               clearable
               border="none"
               v-model="password"
@@ -45,14 +45,14 @@
         <view class="btns">
           <u-button
             class="custom-style"
-            color="#4b80af"
+            color="#f6d658"
             block
             @click="login"
             :loading="loading"
           >
-            登录
+            {{ $t("login") }}
           </u-button>
-          <view class="register" @click="register"> 注册账号 </view>
+          <view class="register" @click="register"> {{ $t("register") }} </view>
         </view>
       </view>
     </view>
@@ -68,6 +68,10 @@ export default {
     };
   },
   methods: {
+    changeLang(e) {
+      this.$i18n.locale = e;
+      uni.setStorageSync("lang", e);
+    },
     register() {
       uni.navigateTo({
         url: "/pages/register",
@@ -75,9 +79,9 @@ export default {
     },
     login() {
       if (!this.userPhone) {
-        return this.$base.show("请输入登录账号~");
+        return this.$base.show(this.$t("loginAccount"));
       } else if (!this.password) {
-        return this.$base.show("请输入登录密码~");
+        return this.$base.show(this.$t("loginPass"));
       }
       const DATA_OBJ = {
         loginPwd: this.password,
@@ -130,7 +134,7 @@ text {
     height: 88rpx;
   }
   .register {
-    color: #4b80af;
+    color: #f6d658;
     font-size: 32rpx;
     margin-top: 40rpx;
   }

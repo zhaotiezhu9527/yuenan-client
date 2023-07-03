@@ -2,29 +2,29 @@
   <view class="page">
     <u-navbar
       placeholder
-      title="投资记录"
+      :title="$t('investmentRecords')"
       :border="false"
       autoBack
       fixed
       safe-area-inset-top
-      bgColor="#4b80af"
+      bgColor="#f6d658"
       leftIconColor="#fff"
       leftIconSize="32"
       height="52px"
-      titleStyle="color:#fff;font-weight:500;font-size:32rpx;"
+      titleStyle="color:#000;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>
     <view class="wrap">
       <view class="title">
-        <view class="title-remark">项目名称</view>
+        <view class="title-remark">{{ $t("projectName") }}</view>
         <view class="line"></view>
-        <view class="title-amount">投资金额</view>
+        <view class="title-amount">{{ $t("investmentAmount") }}</view>
         <view class="line"></view>
-        <view class="title-time">状态</view>
+        <view class="title-time">{{ $t("status") }}</view>
         <view class="line"></view>
-        <view class="title-time">详情</view>
+        <view class="title-time">{{ $t("detail") }}</view>
         <view class="line"></view>
-        <view class="title-time">合同</view>
+        <!-- <view class="title-time">合同</view> -->
       </view>
       <u-list @scrolltolower="load" v-if="isArray" class="scroll">
         <u-list-item v-for="(item, index) in list" :key="index">
@@ -36,7 +36,7 @@
             <view class="table-money green-text">{{ item.amount }}</view>
             <view class="line"></view>
             <view class="table-time">{{
-              item.status ? "已完成" : "待收益"
+              item.status ? $t("complete") : $t("loadingAmount")
             }}</view>
             <view class="line"></view>
             <view class="table-time">
@@ -44,22 +44,22 @@
                 class="blue-text"
                 @click="goInvestmentDetails(item.orderNo)"
               >
-                查看
+                {{ $t("look") }}
               </label>
             </view>
 
             <view class="line"></view>
-            <view class="table-time">
+            <!-- <view class="table-time">
               <label class="grey-text" @click="goContract(item.orderNo)">
-                查看
+                {{ $t("look") }}
               </label>
-            </view>
+            </view> -->
           </view>
         </u-list-item>
-        <view class="loading" v-if="loading">加载中...</view>
-        <view class="nomore" v-if="finished">没有更多了</view>
+        <view class="loading" v-if="loading">{{ $t("loading") }}...</view>
+        <view class="nomore" v-if="finished">{{ $t("finished") }}</view>
       </u-list>
-      <u-empty class="empty" text="暂无数据" v-else />
+      <u-empty class="empty" :text="$t('nodata')" v-else />
     </view>
   </view>
 </template>

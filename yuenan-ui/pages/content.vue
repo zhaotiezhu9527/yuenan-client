@@ -2,40 +2,40 @@
   <view class="page">
     <u-navbar
       placeholder
-      title="立即投资"
+      :title="$t('investment')"
       :border="false"
       autoBack
       fixed
       safe-area-inset-top
-      bgColor="#4b80af"
+      bgColor="#f6d658"
       leftIconColor="#fff"
       leftIconSize="32"
       height="52px"
-      titleStyle="color:#fff;font-weight:500;font-size:32rpx;"
+      titleStyle="color:#000;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>
     <view class="cardStyle">
       <view class="card">
         <view class="item">
-          <view>账户可用余额 (元)</view>
-          <view>￥{{ infos.balance }}元</view>
+          <view>{{ $t("availableBalance") }} ({{ $t("money") }})</view>
+          <view>{{ infos.balance }}{{ $t("money") }}</view>
         </view>
         <view class="item">
-          <view>项目可投金额 (元)</view>
-          <view>{{ items.projectAmount }}元</view>
+          <view>{{ $t("investableAmount") }} ({{ $t("money") }})</view>
+          <view>{{ items.projectAmount }}{{ $t("money") }}</view>
         </view>
       </view>
     </view>
     <view class="amount">
       <view class="li">
-        <view class="name">起投金额</view>
-        <view class="txt"
-          >￥<text>{{ items.minAmount }}</text
-          >元</view
-        >
+        <view class="name">{{ $t("minAmount") }}</view>
+        <view class="txt">
+          <text>{{ items.minAmount }}</text>
+          {{ $t("money") }}
+        </view>
       </view>
       <view class="li">
-        <view class="name">投资金额</view>
+        <view class="name">{{ $t("investmentAmount") }}</view>
         <view class="txt images">
           <image
             class="img"
@@ -48,7 +48,7 @@
             v-model="form.amount"
             type="number"
             border="none"
-            placeholder="请输入金额"
+            :placeholder="$t('inputAmout')"
           />
           <image
             class="img"
@@ -61,36 +61,37 @@
       <view class="li end">
         <view>
           <u-button class="btns" color="#f34133" @click="fullthrow">
-            一键全投
+            {{ $t("fullthrow") }}
           </u-button>
         </view>
       </view>
     </view>
     <view class="pwd">
-      最低起投<text>{{ items.minAmount }}</text
-      >元，加一次为<text>{{ items.minAmount }}</text
-      >元,<text class="other">一键全投</text>即将账户可用余额<text>
-        {{ infos.balance }} </text
-      >元的倍数进行投资。
+      {{ $t("start") }}<text>{{ items.minAmount }}</text
+      >{{ $t("money") }}，{{ $t("add") }}<text>{{ items.minAmount }}</text
+      >{{ $t("money") }}，<text class="other">{{ $t("fullthrow") }}</text
+      >{{ $t("be") }}{{ $t("availableBalance")
+      }}<text> {{ infos.balance }} </text>{{ $t("money")
+      }}{{ $t("multiple") }}。
     </view>
     <view class="input">
-      <view>支付密码</view>
+      <view>{{ $t("payPwd") }}</view>
       <u-input
         v-model="form.pwd"
         :maxlength="6"
         border="none"
         type="password"
-        placeholder="请输入支付密码"
+        :placeholder="$t('inputPayPwd')"
       />
     </view>
     <u-button
       class="btn-class"
       :loading="loading"
-      color="#4b80af"
+      color="#f6d658"
       block
       @click="investor"
     >
-      立即投资
+      {{ $t("investment") }}
     </u-button>
   </view>
 </template>
@@ -136,16 +137,16 @@ export default {
     // 立即投资
     investor() {
       if (!this.form.amount) {
-        this.$base.show("请输入金额");
+        this.$base.show(this.$t("inputAmout"));
         return false;
       } else if (Number(this.form.amount) < Number(this.items.minAmount)) {
-        this.$base.show("金额必须大于起投金额");
+        this.$base.show(this.$t("greaterminAmount"));
         return false;
       } else if (Number(this.form.amount) > Number(this.items.projectAmount)) {
-        this.$base.show("金额不可大于项目可投金额");
+        this.$base.show(this.$t("greaterprojectAmount"));
         return false;
       } else if (!this.form.pwd && this.form.pwd + "".length < 6) {
-        this.$base.show("请输入正确支付密码");
+        this.$base.show(this.$t("inputConfigPayPwd"));
         return false;
       }
       this.loading = true;
@@ -153,7 +154,7 @@ export default {
         .order_execute(this.form)
         .then(({ data }) => {
           if (data.code == 0) {
-            this.$base.show("投资成功~");
+            this.$base.show(this.$t("investmentSuccess"));
             this.form = {
               amount: "",
               pwd: "",
@@ -214,12 +215,12 @@ text {
 .cardStyle {
   padding: 40rpx 30rpx;
   .card {
-    background-color: #4c80b0;
+    background-color: #f6d658;
     border-radius: 10rpx;
     padding: 40rpx;
     box-sizing: border-box;
     display: flex;
-    color: #fff;
+    color: #333;
     justify-content: center;
     .item {
       width: 50%;

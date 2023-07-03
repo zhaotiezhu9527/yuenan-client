@@ -2,16 +2,16 @@
   <view class="page">
     <u-navbar
       placeholder
-      title="投资详情"
+      :title="$t('investmentInfos')"
       :border="false"
       autoBack
       fixed
       safe-area-inset-top
-      bgColor="#4b80af"
+      bgColor="#f6d658"
       leftIconColor="#fff"
       leftIconSize="32"
       height="52px"
-      titleStyle="color:#fff;font-weight:500;font-size:32rpx;"
+      titleStyle="color:#000;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>
     <view class="wrap">
@@ -23,33 +23,39 @@
           </view>
           <view class="rate">
             <view class="li">
-              <view class="con">项目规模</view>
+              <view class="con">{{ $t("scale") }}</view>
               <view class="num">
-                ￥<text>{{ items.projectAmount }} </text>
-                元
+                <text>{{ items.projectAmount }} </text>
+                {{ $t("money") }}
               </view>
             </view>
             <view class="li">
-              <view class="con">每份分红</view>
+              <view class="con">{{ $t("share") }}</view>
               <view class="num"
-                ><text>{{ (items.minAmount * (items.incomeRate/100)).toFixed(0) }}</text
-                >元起</view
+                ><text>{{
+                  (items.minAmount * (items.incomeRate / 100)).toFixed(0)
+                }}</text
+                >{{ $t("money") }}{{ $t("situp") }}</view
               >
             </view>
             <view class="li">
-              <view class="con">投资周期</view>
+              <view class="con">{{ $t("period") }}</view>
               <view class="num"
                 ><text>{{ items.limitTime }}</text
-                >分钟</view
+                >{{ $t("limitTime") }}</view
               >
             </view>
           </view>
           <view class="investor">
             <view class="con">
-              <text>分红方式：每日返息，到期还本</text>
-              <text>起投金额：{{ items.minAmount }}元</text>
-              <text>担保机构：{{ items.guaranteeCompany }}</text>
-              <text>投资零风险：本金保障</text>
+              <text>{{ $t("shareType") }}：{{ $t("InterestRebate") }}</text>
+              <text>
+                {{ $t("minAmount") }}：{{ items.minAmount }}{{ $t("money") }}
+              </text>
+              <text>
+                {{ $t("organization") }}：{{ items.guaranteeCompany }}
+              </text>
+              <text>{{ $t("risk") }}}</text>
             </view>
           </view>
           <view class="progress">
@@ -58,87 +64,86 @@
               height="40"
               :percentage="scheduleFn(items.schedule)"
               :showText="false"
-              activeColor="#2196f3"
+              activeColor="#f6d658"
             ></u-line-progress>
           </view>
         </view>
       </view>
       <view class="tabs">
-        <view class="name">投资详情</view>
+        <view class="name">{{ $t("investmentInfos") }}</view>
         <u-row class="row">
-          <u-col class="col" span="4">项目名称</u-col>
+          <u-col class="col" span="4">{{ $t("projectName") }}</u-col>
           <u-col class="col" span="8">{{ items.projectName }}</u-col>
         </u-row>
         <u-row class="row">
-          <u-col class="col" span="4">项目金额:</u-col>
+          <u-col class="col" span="4">{{ $t("itemAmount") }}:</u-col>
           <u-col class="col" span="8"
             ><text>{{ items.projectAmount }}</text
-            >元人民币</u-col
+            >{{ $t("money") }}{{ $t("rmb") }}</u-col
           >
         </u-row>
         <u-row class="row">
-          <u-col class="col" span="4">每天分红:</u-col>
-          <u-col class="col" span="8"
-            ><text>按每日{{ items.incomeRate }}%的收益 (保本保息)</text></u-col
-          >
-        </u-row>
-        <u-row class="row">
-          <u-col class="col" span="4">投资金额:</u-col>
-          <u-col class="col" span="8"
-            ><text>最低起投{{ items.minAmount }}元</text></u-col
-          >
-        </u-row>
-        <u-row class="row">
-          <u-col class="col" span="4">项目期限:</u-col>
-          <u-col class="col" span="8"
-            ><text>分期定投，每期{{ items.limitTime }}分钟</text></u-col
-          >
-        </u-row>
-        <u-row class="row">
-          <u-col class="col" span="4">收益计算:</u-col>
-          <u-col class="col" span="8"
-            ><text>每天保底分红 利率*本金</text></u-col
-          >
-        </u-row>
-        <u-row class="row">
-          <u-col class="col" span="4">还款方式:</u-col>
-          <u-col class="col" span="8">每日返息，到期还本，节假日照常收益</u-col>
-        </u-row>
-        <u-row class="row">
-          <u-col class="col" span="4">结算时间:</u-col>
-          <u-col class="col" span="8"
-            >当天投资，当天到期自动结算收益(例如在15:00成功投资，则在投资期限到期收到分红和本金)，到期系统会把兰日分红和产品本金一起返还到您的账户当中。
+          <u-col class="col" span="4">{{ $t("everyday") }}:</u-col>
+          <u-col class="col" span="8">
+            <text>
+              {{ $t("day") }}{{ items.incomeRate }}%{{ $t("breakEven") }}
+            </text>
           </u-col>
         </u-row>
         <u-row class="row">
-          <u-col class="col" span="4">可投金额:</u-col>
-          <u-col class="col" span="8"
-            >投资期间只要产品未投满，投资者均可自由投资。</u-col
-          >
-        </u-row>
-        <u-row class="row">
-          <u-col class="col" span="4">安全保障:</u-col>
-          <u-col class="col" span="8"
-            >{{
-              items.guaranteeCompany
-            }}对平台上的每一笔投资提供<text>100%本金保障</text>平台设立风险备用金，对本金承诺全额垫付;
+          <u-col class="col" span="4">{{ $t("investmentAmount") }}:</u-col>
+          <u-col class="col" span="8">
+            <text>{{ $t("start") }}{{ items.minAmount }}{{ $t("money") }}</text>
           </u-col>
         </u-row>
         <u-row class="row">
-          <u-col class="col" span="4">项目概述:</u-col>
+          <u-col class="col" span="4">{{ $t("deadline") }}:</u-col>
+          <u-col class="col" span="8">
+            <text>
+              {{ $t("byStages") }}{{ items.limitTime }}{{ $t("limitTime") }}
+            </text>
+          </u-col>
+        </u-row>
+        <u-row class="row">
+          <u-col class="col" span="4">{{ $t("calculate") }}:</u-col>
+          <u-col class="col" span="8">
+            <text>{{ $t("dayShare") }}</text>
+          </u-col>
+        </u-row>
+        <u-row class="row">
+          <u-col class="col" span="4">{{ $t("repaymentType") }}:</u-col>
+          <u-col class="col" span="8">{{ $t("dayRebate") }}</u-col>
+        </u-row>
+        <u-row class="row">
+          <u-col class="col" span="4">{{ $t("cutoffTime") }}:</u-col>
+          <u-col class="col" span="8">{{ $t("investmentDetail") }} </u-col>
+        </u-row>
+        <u-row class="row">
+          <u-col class="col" span="4">{{ $t("investableAmount2") }}:</u-col>
+          <u-col class="col" span="8">{{ $t("investableAmountInfos") }}</u-col>
+        </u-row>
+        <u-row class="row">
+          <u-col class="col" span="4">{{ $t("safety") }}:</u-col>
+          <u-col class="col" span="8">
+            {{ items.guaranteeCompany }}{{ $t("brushstroke") }}
+            <text>{{ $t("oneHundred") }}</text>
+            {{ $t("safetyInfos") }}
+          </u-col>
+        </u-row>
+        <u-row class="row">
+          <u-col class="col" span="4">{{ $t("summarize") }}:</u-col>
           <u-col class="col" span="8"
-            ><text
-              >本项目筹集资金{{
-                items.projectAmount
-              }}元人民币，所筹集资金用于该项目直投运作作为投资者分红固定且无任何风险，集为投资份红围庆昌香括保风曾，所承担。
+            ><text>
+              {{ $t("raise") }}{{ items.projectAmount }}{{ $t("money") }}
+              {{ $t("rmb") }}，{{ $t("raiseInfos") }}
             </text></u-col
           >
         </u-row>
       </view>
     </view>
     <view class="btn">
-      <u-button color="#4b80af" class="btn-class" block @click="change">
-        马上投资
+      <u-button color="#f6d658" class="btn-class" block @click="change">
+        {{ $t("immediately") }}
       </u-button>
     </view>
   </view>
@@ -245,7 +250,7 @@ text {
 
     .number {
       position: absolute;
-      color: #fff;
+      color: #333;
       font-size: 26rpx;
       width: 100rpx;
       text-align: right;

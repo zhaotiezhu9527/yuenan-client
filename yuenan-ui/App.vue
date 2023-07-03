@@ -34,10 +34,10 @@ export default {
           );
           if (that_app.appWgtVersion !== new_app.version) {
             uni.showModal({
-              title: "提示",
-              content: "有最新版本，是否下载",
-              confirmText: "确定",
-              cancelText: "取消",
+              title: this.$t("tips"),
+              content: this.$t("download"),
+              confirmText: this.$t("confirmText"),
+              cancelText: this.$t("cancelText"),
               success: (res) => {
                 if (res.confirm) {
                   plus.runtime.openURL(new_app.downloadUrl);

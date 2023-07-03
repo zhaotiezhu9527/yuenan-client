@@ -2,25 +2,25 @@
   <view class="page">
     <u-navbar
       placeholder
-      title="提现记录"
+      :title="$t('WithdrawalRecords')"
       :border="false"
       autoBack
       fixed
       safe-area-inset-top
-      bgColor="#4b80af"
+      bgColor="#f6d658"
       leftIconColor="#fff"
       leftIconSize="32"
       height="52px"
-      titleStyle="color:#fff;font-weight:500;font-size:32rpx;"
+      titleStyle="color:#000;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>
     <view class="wrap">
       <view class="title">
-        <view class="title-amount">提现金额</view>
+        <view class="title-amount">{{ $t("withdrawalMoney") }}</view>
         <view class="line"></view>
-        <view class="title-remark">操作时间</view>
+        <view class="title-remark">{{ $t("operationTime") }}</view>
         <view class="line"></view>
-        <view class="title-amount">状态</view>
+        <view class="title-amount">{{ $t("status") }}</view>
       </view>
       <u-list @scrolltolower="load" v-if="isArray" class="scroll">
         <u-list-item v-for="(item, index) in list" :key="index">
@@ -31,19 +31,21 @@
             <view class="line"></view>
             <view class="table-title">{{ item.time }}</view>
             <view class="line"></view>
-            <view class="table-money" v-if="item.status === 0">待审核</view>
+            <view class="table-money" v-if="item.status === 0">
+              {{ $t("waitReview") }}
+            </view>
             <view class="table-money" v-else-if="item.status === 1">
-              提现成功
+              {{ $t(withdrawalSuccess) }}
             </view>
             <view class="table-money" v-else-if="item.status === 2">
-              提现失败
+              {{ $t("withdrawalError") }}
             </view>
           </view>
         </u-list-item>
-        <view class="loading" v-if="loading">加载中...</view>
-        <view class="nomore" v-if="finished">没有更多了</view>
+        <view class="loading" v-if="loading">{{ $t("loading") }}...</view>
+        <view class="nomore" v-if="finished">{{ $t("finished") }}</view>
       </u-list>
-      <u-empty class="empty" text="暂无数据" v-else />
+      <u-empty class="empty" :text="$t('nodata')" v-else />
     </view>
   </view>
 </template>

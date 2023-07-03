@@ -2,34 +2,34 @@
   <view class="page">
     <u-navbar
       placeholder
-      title="银行卡绑定"
+      :title="$t('bankCardNumTitle')"
       :border="false"
       autoBack
       fixed
       safe-area-inset-top
-      bgColor="#4b80af"
+      bgColor="#f6d658"
       leftIconColor="#fff"
       leftIconSize="32"
       height="52px"
-      titleStyle="color:#fff;font-weight:500;font-size:32rpx;"
+      titleStyle="color:#000;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>
     <view class="wrap">
       <view v-if="bindStatus" class="card-box">
         <view class="card">
           <view class="card-name">{{ bankName }}</view>
-          <view class="card-text">储蓄卡</view>
+          <view class="card-text">{{ $t("bankName") }}</view>
           <view class="card-num">{{ bankCardNum }}</view>
         </view>
       </view>
       <view v-else>
-        <view class="usdt-title">添加银行卡</view>
+        <view class="usdt-title">{{ $t("addBank") }}</view>
         <view class="from-input">
           <input
             type="text"
             class="input-text"
             v-model="bankName"
-            placeholder="请输入所属银行，如：中国工商银行"
+            :placeholder="$t('inputBank')"
           />
         </view>
         <view class="from-input">
@@ -37,7 +37,7 @@
             type="text"
             class="input-text"
             v-model="addr"
-            placeholder="请输入支行信息，如：北京朝阳支行"
+            :placeholder="$t('inputAddr')"
           />
         </view>
         <view class="from-input">
@@ -45,7 +45,7 @@
             type="text"
             v-model="bankCardNum"
             class="input-text"
-            placeholder="请输入储蓄卡号"
+            :placeholder="$t('inputBankCardNum')"
           />
         </view>
         <u-button
@@ -54,7 +54,7 @@
           @click="changeBind"
           :loading="loading"
         >
-          提交绑定
+          {{ $t("submitBind") }}
         </u-button>
       </view>
     </view>
@@ -73,17 +73,17 @@ export default {
     };
   },
   onShow() {
-    this.getInfo()
+    this.getInfo();
   },
   methods: {
     // 绑定银行卡
     changeBind() {
       if (!this.bankName) {
-        return this.$base.show("请输入所属银行~");
+        return this.$base.show(this.$t("inputBank"));
       } else if (!this.bankCardNum) {
-        return this.$base.show("请输入银行卡号~");
+        return this.$base.show(this.$t("inputBankCardNum"));
       } else if (!this.addr) {
-        return this.$base.show("请输入支行信息~");
+        return this.$base.show(this.$("inputAddr"));
       }
       this.loading = true;
       this.$api
@@ -119,7 +119,7 @@ export default {
 .wrap {
   .usdt-title {
     margin: 60rpx 50rpx;
-    color: #577fab;
+    color: #f6d658;
     font-weight: 500;
     font-size: 40rpx;
   }
@@ -136,8 +136,8 @@ export default {
     .card {
       padding: 30rpx 20rpx;
       height: 320rpx;
-      background-image: linear-gradient(#769ed6, #5375ae);
-      color: #fff;
+      background-image: linear-gradient(#f6d658, #f5c400);
+      color: #333;
       .card-name {
         font-size: 28rpx;
       }

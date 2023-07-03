@@ -2,15 +2,15 @@
   <view class="page">
     <u-navbar
       placeholder
-      title="项目投资"
+      :title="$t('investor')"
       :border="false"
       autoBack
       fixed
       leftIconSize="0"
       safe-area-inset-top
-      bgColor="#4b80af"
+      bgColor="#f6d658"
       height="52px"
-      titleStyle="color:#fff;font-weight:500;font-size:32rpx;"
+      titleStyle="color:#000;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>
     <view class="wrap">
@@ -24,7 +24,9 @@
           >
             <image class="img" :src="item.img" mode="widthFix" />
             <view class="name">
-              <text>保</text>
+              <text>
+                <!-- {{ $t("projectName2") }} -->
+              </text>
               <text>{{ item.projectName }}</text>
             </view>
             <view class="rate">
@@ -33,36 +35,38 @@
                   ><text>{{ item.incomeRate }}</text>
                   %
                 </view>
-                <view class="con">日化利率</view>
+                <view class="con">{{ $t("incomeRate") }}</view>
               </view>
               <view class="li">
                 <view class="num">
                   <text>{{ item.limitTime }}</text>
-                  分钟
+                  {{ $t("limitTime") }}
                 </view>
-                <view class="con">投资期限</view></view
+                <view class="con">{{ $t("deadline") }}</view></view
               >
               <view class="li">
-                <view class="num"
-                  >￥<text>{{ item.minAmount }}</text>
-                  元
+                <view class="num">
+                  <text>{{ item.minAmount }}</text>
+                  {{ $t("money") }}
                 </view>
-                <view class="con">起投金额</view></view
-              >
+                <view class="con">{{ $t("minAmount") }}</view>
+              </view>
             </view>
             <view class="investor">
               <view class="con">
-                <text>项目规模：{{ item.projectAmount }}元</text>
-                <text>每日还息：到期还本</text>
+                <text>
+                  {{ $t("scale") }}：{{ item.projectAmount }}{{ $t("money") }}
+                </text>
+                <text>{{ $t("interest") }}</text>
               </view>
-              <view class="btn">立即投资</view>
+              <view class="btn">{{ $t("investment") }}</view>
             </view>
             <view class="progress">
-              <view class="txt">项目进度：</view>
+              <view class="txt">{{ $t("progress") }}：</view>
               <u-line-progress
                 :percentage="scheduleFn(item.schedule)"
                 :showText="false"
-                activeColor="#2196f3"
+                activeColor="#f6d658"
               />
               <view class="number">{{ item.schedule }}%</view>
             </view>
@@ -70,7 +74,7 @@
         </view>
       </scroll-view>
 
-      <u-empty class="empty" text="暂无数据" v-else />
+      <u-empty class="empty" :text="$t('nodata')" v-else />
     </view>
   </view>
 </template>
