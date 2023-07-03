@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.juhai</groupId>
-    <artifactId>yiliao-client</artifactId>
+    <artifactId>yuenan-client</artifactId>
     <version>1.0.0</version>
-    <name>yiliao-client</name>
-    <description>yiliao-client</description>
+    <name>yuenan-client</name>
+    <description>yuenan-client</description>
     <packaging>pom</packaging>
 
     <modules>
