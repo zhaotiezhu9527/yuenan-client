@@ -249,6 +249,7 @@ export default {
   }
 }
 .content {
+  padding: 100rpx 0 0 0;
   overflow: hidden;
   .img {
     width: 70rpx;
