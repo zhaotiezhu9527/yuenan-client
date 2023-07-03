@@ -47,7 +47,7 @@
         </view>
         <!-- 列表 -->
         <view class="list">
-          <view
+          <!-- <view
             v-if="config.ouyi_download_url"
             class="list-item"
             @click="downloadChange(config.ouyi_download_url)"
@@ -55,8 +55,8 @@
             <image class="icon-img" src="../static/img/okx_app_icon.png" />
             <label>{{ $t("ouyi_download_url") }}</label>
             <view class="icon"></view>
-          </view>
-          <view
+          </view> -->
+          <!-- <view
             v-if="config.bian_download_url"
             class="list-item"
             @click="downloadChange(config.bian_download_url)"
@@ -64,8 +64,8 @@
             <image class="icon-img" src="../static/img/bian_app_icon.png" />
             <label>{{ $t("bian_download_url") }}</label>
             <view class="icon"></view>
-          </view>
-          <view
+          </view> -->
+          <!-- <view
             v-if="config.huobi_download_url"
             class="list-item"
             @click="downloadChange(config.huobi_download_url)"
@@ -73,7 +73,7 @@
             <image class="icon-img" src="../static/img/icon_app_huobi.png" />
             <label>{{ $t("huobi_download_url") }}</label>
             <view class="icon"></view>
-          </view>
+          </view> -->
           <view class="list-item" @click="sign">
             <image class="icon-img" src="../static/img/mine_func_qiandao.png" />
             <label>{{ $t("sign") }}</label>
