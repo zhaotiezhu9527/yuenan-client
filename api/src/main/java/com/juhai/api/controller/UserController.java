@@ -96,7 +96,7 @@ public class UserController {
         temp.put("bankCardNum", DesensitizedUtil.bankCard(user.getBankCardNum()));
         temp.put("bankName", user.getBankName());
         temp.put("bankAddr", user.getBankAddr());
-        temp.put("userLevelName", "普通用户");
+        temp.put("userLevelName", MsgUtil.get("system.user.levelname"));
         int isRealName = 1;
         if (StringUtils.isNotBlank(user.getRealName()) && StringUtils.isNotBlank(user.getIdCard())) {
             isRealName = 0;
@@ -305,7 +305,7 @@ public class UserController {
             /** 累计密码错误 **/
             redisTemplate.opsForValue().increment(incKey);
             redisTemplate.expire(incKey, 1, TimeUnit.DAYS);
-            return R.error("密码错误");
+            return R.error(MsgUtil.get("system.user.login.pwd.error"));
         }
         if (user.getUserStatus().intValue() == 1) {
             return R.error(MsgUtil.get("system.user.enable"));
@@ -358,9 +358,17 @@ public class UserController {
         List<Account> list = (List<Account>) page.getList();
         if (CollUtil.isNotEmpty(list)) {
             JSONArray arr = new JSONArray();
+            Map<Integer, String> map = new HashMap<>();
+            map.put(1, MsgUtil.get("system.account.type1"));
+            map.put(2, MsgUtil.get("system.account.type2"));
+            map.put(3, MsgUtil.get("system.account.type3"));
+            map.put(4, MsgUtil.get("system.account.type4"));
+            map.put(5, MsgUtil.get("system.account.type5"));
+            map.put(6, MsgUtil.get("system.account.type6"));
             for (Account temp : list) {
                 JSONObject obj = new JSONObject();
-                obj.put("remark", temp.getRemark());
+//                obj.put("remark", temp.getRemark());
+                obj.put("remark", map.getOrDefault(temp.getOptType(), "-"));
                 obj.put("amount", temp.getOptAmount());
                 obj.put("optTime", temp.getOptTime());
                 arr.add(obj);
@@ -442,7 +450,7 @@ public class UserController {
             JSONArray arr = new JSONArray();
             for (Deposit temp : list) {
                 JSONObject obj = new JSONObject();
-                obj.put("typeStr", "系统充值");
+                obj.put("typeStr", MsgUtil.get("system.user.deposittype"));
                 obj.put("time", temp.getOptTime());
                 obj.put("status", temp.getStatus());
                 obj.put("amount", temp.getOptAmount());
