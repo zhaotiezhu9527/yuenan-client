@@ -52,6 +52,7 @@ public class ProjectController {
         JSONArray array = new JSONArray();
         if (CollUtil.isNotEmpty(list)) {
             Map<String, String> map = paramterService.getAllParamByMap();
+            Date now = new Date();
             for (Project project : list) {
                 JSONObject temp = new JSONObject();
                 temp.put("projectId", project.getId());
@@ -64,6 +65,12 @@ public class ProjectController {
                 temp.put("schedule", project.getSchedule());
                 temp.put("guaranteeCompany", map.get("guarantee_company"));
                 temp.put("img", map.get("resource_domain") + project.getImg());
+                int status = 0;
+                // 不在时间区间内 过滤
+                if (!DateUtil.isIn(now, project.getStartTime(), project.getEndTime())) {
+                    status = 1;
+                }
+                temp.put("status", status);
                 array.add(temp);
             }
         }
@@ -78,9 +85,9 @@ public class ProjectController {
             return R.error(MsgUtil.get("system.project.invalid"));
         }
 
-        if(project.getStatus().intValue() == 1 || !DateUtil.isIn(new Date(), project.getStartTime(), project.getEndTime())) {
-            return R.error(MsgUtil.get("system.project.finshed"));
-        }
+//        if(project.getStatus().intValue() == 1 || !DateUtil.isIn(new Date(), project.getStartTime(), project.getEndTime())) {
+//            return R.error(MsgUtil.get("system.project.finshed"));
+//        }
 
         Map<String, String> map = paramterService.getAllParamByMap();
         JSONObject temp = new JSONObject();
@@ -98,6 +105,14 @@ public class ProjectController {
         String userName = JwtUtils.getUserName(httpServletRequest);
         User user = userService.getUserByName(userName);
         temp.put("userBalance", user.getBalance());
+
+        Date now = new Date();
+        int status = 0;
+        // 不在时间区间内 过滤
+        if (project.getStatus().intValue() == 1 || !DateUtil.isIn(now, project.getStartTime(), project.getEndTime())) {
+            status = 1;
+        }
+        temp.put("status", status);
 
         return R.ok().put("data", temp);
     }
