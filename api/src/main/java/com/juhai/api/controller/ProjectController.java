@@ -85,9 +85,9 @@ public class ProjectController {
             return R.error(MsgUtil.get("system.project.invalid"));
         }
 
-        if(project.getStatus().intValue() == 1 || !DateUtil.isIn(new Date(), project.getStartTime(), project.getEndTime())) {
-            return R.error(MsgUtil.get("system.project.finshed"));
-        }
+//        if(project.getStatus().intValue() == 1 || !DateUtil.isIn(new Date(), project.getStartTime(), project.getEndTime())) {
+//            return R.error(MsgUtil.get("system.project.finshed"));
+//        }
 
         Map<String, String> map = paramterService.getAllParamByMap();
         JSONObject temp = new JSONObject();
