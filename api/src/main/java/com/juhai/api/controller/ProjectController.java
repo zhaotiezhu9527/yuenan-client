@@ -70,7 +70,7 @@ public class ProjectController {
                 if (!DateUtil.isIn(now, project.getStartTime(), project.getEndTime())) {
                     status = 1;
                 }
-                temp.put("startTime", status);
+                temp.put("status", status);
                 array.add(temp);
             }
         }
@@ -112,7 +112,7 @@ public class ProjectController {
         if (!DateUtil.isIn(now, project.getStartTime(), project.getEndTime())) {
             status = 1;
         }
-        temp.put("startTime", status);
+        temp.put("status", status);
 
         return R.ok().put("data", temp);
     }
