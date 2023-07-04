@@ -109,7 +109,7 @@ public class ProjectController {
         Date now = new Date();
         int status = 0;
         // 不在时间区间内 过滤
-        if (!DateUtil.isIn(now, project.getStartTime(), project.getEndTime())) {
+        if (project.getStatus().intValue() == 1 || !DateUtil.isIn(now, project.getStartTime(), project.getEndTime())) {
             status = 1;
         }
         temp.put("status", status);
