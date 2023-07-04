@@ -55,7 +55,7 @@
               <text>
                 {{ $t("organization") }}：{{ items.guaranteeCompany }}
               </text>
-              <text>{{ $t("risk") }}}</text>
+              <text>{{ $t("risk") }}</text>
             </view>
           </view>
           <view class="progress">
@@ -141,9 +141,9 @@
         </u-row>
       </view>
     </view>
-    <view class="btn">
-      <u-button color="#f6d658" class="btn-class" 
-      :class="items.status === 1 ? 'gray-btn' : ''" 
+    <view class="btn" >
+      <u-button class="btn-class" 
+      :class="items.status === 1 ? 'custom-style' : ''"
       block 
       @click="change(items)">
         {{ $t("immediately") }}
@@ -156,6 +156,9 @@ export default {
   data() {
     return {
       items: {},
+      customStyle: {
+        color: '#ccc',
+      }
     };
   },
   onLoad(e) {

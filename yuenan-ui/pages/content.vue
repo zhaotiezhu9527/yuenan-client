@@ -87,9 +87,9 @@
     <u-button
       class="btn-class"
       :loading="loading"
-      color="#f6d658"
+      :class="items.status === 1 ? 'custom-style' : ''"
       block
-      @click="investor"
+      @click="investor(items)"
     >
       {{ $t("investment") }}
     </u-button>
@@ -135,39 +135,41 @@ export default {
       );
     },
     // 立即投资
-    investor() {
-      if (!this.form.amount) {
-        this.$base.show(this.$t("inputAmout"));
-        return false;
-      } else if (Number(this.form.amount) < Number(this.items.minAmount)) {
-        this.$base.show(this.$t("greaterminAmount"));
-        return false;
-      } else if (Number(this.form.amount) > Number(this.items.projectAmount)) {
-        this.$base.show(this.$t("greaterprojectAmount"));
-        return false;
-      } else if (!this.form.pwd && this.form.pwd + "".length < 6) {
-        this.$base.show(this.$t("inputConfigPayPwd"));
-        return false;
+    investor(items) {
+      if(items.status === 0){
+        if (!this.form.amount) {
+          this.$base.show(this.$t("inputAmout"));
+          return false;
+        } else if (Number(this.form.amount) < Number(this.items.minAmount)) {
+          this.$base.show(this.$t("greaterminAmount"));
+          return false;
+        } else if (Number(this.form.amount) > Number(this.items.projectAmount)) {
+          this.$base.show(this.$t("greaterprojectAmount"));
+          return false;
+        } else if (!this.form.pwd && this.form.pwd + "".length < 6) {
+          this.$base.show(this.$t("inputConfigPayPwd"));
+          return false;
+        }
+        this.loading = true;
+        this.$api
+          .order_execute(this.form)
+          .then(({ data }) => {
+            if (data.code == 0) {
+              this.$base.show(this.$t("investmentSuccess"));
+              this.form = {
+                amount: "",
+                pwd: "",
+                projectId: this.items.projectId,
+              };
+              setTimeout(() => {
+                this.dataFn(this.items.projectId);
+              }, 2000);
+            }
+          })
+          .finally(() => {
+            this.loading = false;
+          });
       }
-      this.loading = true;
-      this.$api
-        .order_execute(this.form)
-        .then(({ data }) => {
-          if (data.code == 0) {
-            this.$base.show(this.$t("investmentSuccess"));
-            this.form = {
-              amount: "",
-              pwd: "",
-              projectId: this.items.projectId,
-            };
-            setTimeout(() => {
-              this.dataFn(this.items.projectId);
-            }, 2000);
-          }
-        })
-        .finally(() => {
-          this.loading = false;
-        });
     },
     // 一键全投
     fullthrow() {

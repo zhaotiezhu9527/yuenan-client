@@ -90,6 +90,10 @@ $uni-font-size-paragraph: 15px;
   &.gray-btn{
     background-color: #ccc;
   }
+  &.custom-style {
+		color: #333;
+    background-color: #ccc;
+	}
 }
 .margintop10 {
   margin-top: 14rpx;
