@@ -59,7 +59,8 @@
                 </text>
                 <text>{{ $t("interest") }}</text>
               </view>
-              <view class="btn">{{ $t("investment") }}</view>
+              <view class="btn" v-if="item.status == 0">{{ $t("investment") }}</view>
+              <view class="btn gray-btn" v-else-if="item.status == 1">{{ $t("investment") }}</view>
             </view>
             <view class="progress">
               <view class="txt">{{ $t("progress") }}：</view>
@@ -107,13 +108,15 @@ export default {
         });
     },
     routePath(item) {
-      this.$api.project_info(item.projectId).then(({ data }) => {
-        if (data.code == 0) {
-          uni.navigateTo({
-            url: `/pages/info?id=${item.projectId}`,
-          });
-        }
-      });
+      if(item.status === 0){
+        this.$api.project_info(item.projectId).then(({ data }) => {
+          if (data.code == 0) {
+            uni.navigateTo({
+              url: `/pages/info?id=${item.projectId}`,
+            });
+          }
+        });
+      }
     },
     guaranteeCompanyFn(name) {
       return name ? name.charAt(name.length - 1) : "-";

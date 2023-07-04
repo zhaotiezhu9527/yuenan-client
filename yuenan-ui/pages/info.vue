@@ -142,7 +142,10 @@
       </view>
     </view>
     <view class="btn">
-      <u-button color="#f6d658" class="btn-class" block @click="change">
+      <u-button color="#f6d658" class="btn-class" 
+      :class="items.status === 1 ? 'gray-btn' : ''" 
+      block 
+      @click="change(items)">
         {{ $t("immediately") }}
       </u-button>
     </view>
@@ -167,10 +170,12 @@ export default {
     scheduleFn(page) {
       return (Number(page) > 100 ? 100 : Number(page)) || 0;
     },
-    change() {
-      uni.navigateTo({
-        url: `/pages/content?id=${this.items.projectId}`,
-      });
+    change(item) {
+      if(item.status === 0){
+        uni.navigateTo({
+          url: `/pages/content?id=${this.items.projectId}`,
+        });
+      }
     },
   },
 };

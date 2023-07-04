@@ -87,6 +87,9 @@ $uni-font-size-paragraph: 15px;
   line-height: 80rpx;
   color: #333;
   font-size: 32rpx;
+  &.gray-btn{
+    background-color: #ccc;
+  }
 }
 .margintop10 {
   margin-top: 14rpx;

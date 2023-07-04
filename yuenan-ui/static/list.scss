@@ -76,6 +76,9 @@
       border-radius: 10rpx;
       background-color: #f6d658;
       padding: 12rpx 26rpx;
+      &.gray-btn{
+        background-color: #ccc;
+      }
     }
   }
   .progress {
