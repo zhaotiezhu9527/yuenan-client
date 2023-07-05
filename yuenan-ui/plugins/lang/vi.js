@@ -69,7 +69,7 @@ export default {
   withdrawalUsdt: " ",
   withdrawalBank: "Rút tiền về thẻ ngân hàng ",
   withdrawalType: "Chọn phương thức rút tiền ", 
-  money: "đồng", 
+  money: "VNĐ", 
   rmb: "Việt nam đồng  ( VNĐ)",
   situp: "Bắt đầu từ",
   inputNoBalance: "Số tiền đã nhập không được lớn hơn số tiền có thể rút",
