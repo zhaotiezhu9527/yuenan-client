@@ -148,6 +148,8 @@
       :asyncClose="true"
       showCancelButton
       confirmColor="#f6d658"
+      :confirmText="$t('logout')"
+      :cancelText="$t('quxiao')"
     >
       <view class="content">{{ $t("loginOutTips") }}</view>
     </u-modal>
