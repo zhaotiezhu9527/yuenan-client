@@ -180,8 +180,7 @@ export default {
   balance: "Số dư (VND) Điểm thưởng (0)",
   investmentProject: "Dự án đầu tư",
   about: "Giới thiệu",
-  calculator: "Thu nhập",
-  // calculator: "Máy tính",   (换成 收入 ：)
+  calculator: "Thu nhập",// calculator: "Máy tính",   (换成 收入 ：)
   comingSoon: "Vui lòng chờ đợi",
   topUpUSDT: " ",
   freeRegistration: "Đăng ký miễn phí",

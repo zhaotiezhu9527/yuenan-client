@@ -126,7 +126,7 @@ export default {
           path: "/pages/investor",
         },
         { name: this.$t("about"), img: img1, path: "/pages/about" },
-        { name: this.$t("calculator"), img: img2, path: "/pages/RevenueRecords" },
+        { name: this.$t("calculator"), img: img4, path: "/pages/RevenueRecords" },
         { name: this.$t("sign"), img: img3 },
         // {
         //   name: this.$t("topUpUSDT"),
@@ -143,6 +143,10 @@ export default {
           name: this.$t("onlineService"),
           img: img7,
           path: "/pages/preview",
+        },
+        {
+          name: this.$t("comingSoon"),
+          img: img2,
         },
       ],
       list2: [banner1, banner2, banner3],
@@ -200,6 +204,8 @@ export default {
             url: "/pages/withdraw",
           });
         }
+      } else if (name === this.$t("comingSoon")) {
+        return this.$base.show(this.$t("comingSoon"));
       }
     },
     routePath(item) {
