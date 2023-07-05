@@ -30,13 +30,27 @@
           </view>
         </view>
         <view class="notice">
-          <u-notice-bar
+          <!-- <u-notice-bar
             color="#ffffff"
             bgColor="#e15241"
             scrollable
             fontSize="28rpx"
             :text="config.home_notice || ''"
-          />
+          /> -->
+          <view class="notice__inner">
+            <view
+              class="notice__box"
+              :style="{ animation: `roll ${nav.length}s linear infinite` }"
+            >
+              <view
+                class="notice__item"
+                v-for="(item, index) in nav"
+                :key="index"
+              >
+                {{ item }}
+              </view>
+            </view>
+          </view>
         </view>
         <view class="list">
           <view
@@ -153,6 +167,18 @@ export default {
       shopGoods: [],
       config: {},
       infos: {},
+      nav: [
+        "测试数据1",
+        "测试数据2",
+        "测试数据3",
+        "测试数据4",
+        "测试数据5",
+        "测试数据6",
+        "测试数据7",
+        "测试数据8",
+        "测试数据9",
+        "测试数据10",
+      ],
     };
   },
   async onLoad() {
@@ -165,6 +191,11 @@ export default {
     this.$api.project_list().then(({ data }) => {
       if (data.code == 0) {
         this.shopGoods = data.data;
+        // 测试数据
+        if (this.nav.length > 3) {
+          let that = JSON.parse(JSON.stringify(this.nav));
+          this.nav = [...this.nav, ...that.splice(0, 3)];
+        }
       }
     });
   },
@@ -282,11 +313,26 @@ export default {
 }
 .notice {
   margin: 30rpx 30rpx 0;
-  border-radius: 10rpx;
   overflow: hidden;
-  /deep/.uicon-volume {
-    font-size: 32rpx !important;
-    line-height: 32rpx !important;
+  height: 180rpx;
+  border-radius: 16rpx;
+  background-color: #e15241;
+  .notice__inner {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-size: 28rpx;
+    color: #fff;
+  }
+  .notice__box {
+    animation: roll 10s linear infinite;
+  }
+  .notice__item {
+    width: 100%;
+    height: 60rpx;
+    line-height: 60rpx;
+    padding: 0 40rpx;
+    white-space: nowrap;
   }
 }
 .empty2 {

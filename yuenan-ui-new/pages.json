@@ -98,25 +98,25 @@
         "pagePath": "pages/index",
         "iconPath": "./static/img/index1.png",
         "selectedIconPath": "./static/img/index.png",
-        "text": "首页"
+        "text": "trang đầu"
       },
       {
         "pagePath": "pages/investor",
         "iconPath": "./static/img/money1.png",
         "selectedIconPath": "./static/img/money.png",
-        "text": "投资"
+        "text": "đầu tư"
       },
       {
         "pagePath": "pages/about",
         "iconPath": "./static/img/find1.png",
         "selectedIconPath": "./static/img/find.png",
-        "text": "关于我们"
+        "text": "về chúng tôi"
       },
       {
         "pagePath": "pages/personal",
         "iconPath": "./static/img/user1.png",
         "selectedIconPath": "./static/img/user.png",
-        "text": "个人中心"
+        "text": "trung tâm cá nhân"
       }
     ]
   },
