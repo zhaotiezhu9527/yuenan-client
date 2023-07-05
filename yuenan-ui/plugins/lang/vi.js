@@ -168,7 +168,7 @@ export default {
   investmentDetail:
     "Thu nhập được tự động thanh toán vào ngày đáo hạn (ví dụ: nếu bạn đầu tư thành công lúc 15:00, bạn sẽ nhận được cổ tức và tiền gốc khi hết thời gian đầu tư) và hệ thống sẽ trả lại cổ tức và tiền gốc của sản phẩmvào tài khoản của bạn  .",
   calculate: "Tính toán thu nhập",
-  deadline: "Thời hạn của dự án",
+  deadline: "Thời gian đấu thầu",
   byStages: "Đấu tư đều đặn ,mỗi đợt",
   dayShare: "Lãi suất cổ tức được đảm bảo hàng ngày*tiền gốc",
   dayRebate: "Hoàn lãi hàng ngày , trả gốc khi đáo hạn, và  thu nhập như bình thường  trong các kỳ nghỉ lễ",

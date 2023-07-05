@@ -126,7 +126,7 @@ export default {
           path: "/pages/investor",
         },
         { name: this.$t("about"), img: img1, path: "/pages/about" },
-        { name: this.$t("calculator"), img: img2 },
+        { name: this.$t("calculator"), img: img2, path: "/pages/RevenueRecords" },
         { name: this.$t("sign"), img: img3 },
         // {
         //   name: this.$t("topUpUSDT"),
@@ -171,7 +171,9 @@ export default {
           url: path,
         });
       } else if (name === this.$t("calculator")) {
-        this.$base.show(this.$t("comingSoon") + "！");
+        uni.navigateTo({
+          url: path,
+        });
       } else if (name === this.$t("freeRegistration")) {
         uni.navigateTo({
           url: path,
