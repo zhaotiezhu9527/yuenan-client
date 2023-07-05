@@ -176,7 +176,7 @@ export default {
   breakEven: "Cổ tức hàng ngày  (Đảm bảo gốc và lãi)",
   dateTime: "Thời gian",
   sum: "Số tiền",
-  abstract: " ",
+  abstract: "Bản tóm tắt",
   balance: "Số dư (VND) Điểm thưởng (0)",
   investmentProject: "Dự án đầu tư",
   about: "Giới thiệu",
