@@ -90,7 +90,7 @@ public class UserController {
         temp.put("userName", user.getUserName());
         temp.put("balance", user.getBalance());
         temp.put("realName", user.getRealName());
-        temp.put("idCard", DesensitizedUtil.idCardNum(user.getIdCard(), 4, 4));
+        temp.put("idCard", DesensitizedUtil.idCardNum(user.getIdCard(), 2, 2));
         temp.put("inviteCode", user.getInviteCode());
         temp.put("walletAddr", DataDesensitizeUtils.desensitize(user.getWalletAddr(), 4 , 4));
         temp.put("bankCardNum", DesensitizedUtil.bankCard(user.getBankCardNum()));
