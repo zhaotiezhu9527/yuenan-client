@@ -35,7 +35,7 @@
                 ><text>{{
                   (items.minAmount * (items.incomeRate / 100)).toFixed(0)
                 }}</text
-                >{{ $t("money") }}{{ $t("situp") }}</view
+                >{{ $t("money") }}</view
               >
             </view>
             <view class="li">
@@ -194,6 +194,11 @@ text {
     padding: 20rpx;
     box-sizing: border-box;
     background-color: #fff;
+    .img{
+      width: 100%;
+      display: block;
+      margin: auto;
+    }
   }
   .name {
     display: flex;
