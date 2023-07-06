@@ -72,7 +72,7 @@
               class="icon-img"
               src="../static/img/mine_func_chongzhi.png"
             />
-            <label>{{ $t("WithdrawalRecords") }}</label>
+            <label>{{ $t("topupRecords") }}</label>
             <view class="icon"></view>
           </view>
           <view class="list-item" @click="goWithdrawalRecords">
