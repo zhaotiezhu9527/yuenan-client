@@ -37,7 +37,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -90,7 +89,7 @@ public class UserController {
         temp.put("userName", user.getUserName());
         temp.put("balance", user.getBalance());
         temp.put("realName", user.getRealName());
-        temp.put("idCard", DesensitizedUtil.idCardNum(user.getIdCard(), 4, 4));
+        temp.put("idCard", DesensitizedUtil.idCardNum(user.getIdCard(), 2, 2));
         temp.put("inviteCode", user.getInviteCode());
         temp.put("walletAddr", DataDesensitizeUtils.desensitize(user.getWalletAddr(), 4 , 4));
         temp.put("bankCardNum", DesensitizedUtil.bankCard(user.getBankCardNum()));
@@ -365,6 +364,7 @@ public class UserController {
             map.put(4, MsgUtil.get("system.account.type4"));
             map.put(5, MsgUtil.get("system.account.type5"));
             map.put(6, MsgUtil.get("system.account.type6"));
+            map.put(7, MsgUtil.get("system.account.type7"));
             for (Account temp : list) {
                 JSONObject obj = new JSONObject();
 //                obj.put("remark", temp.getRemark());
@@ -607,6 +607,13 @@ public class UserController {
     @ApiOperation(value = "用户提现")
     @PostMapping("/withdraw")
     public R withdraw(@Validated WithdrawRequest request, HttpServletRequest httpServletRequest) throws Exception {
+        String userName = JwtUtils.getUserName(httpServletRequest);
+        // 查询是否有投资记录
+        long orderCounts = orderService.count(new LambdaQueryWrapper<Order>().eq(Order::getUserName, userName));
+        if (orderCounts <= 0) {
+            return R.error(MsgUtil.get("system.withdraw.noorder"));
+        }
+
         // 验证类型
         if (!StringUtils.equals(request.getType(), "1") && !StringUtils.equals(request.getType(), "2")) {
             return R.error(MsgUtil.get("system.param.err"));
@@ -640,7 +647,6 @@ public class UserController {
             return R.error(StrUtil.format(MsgUtil.get("system.withdraw.limitamount"), leastWithdrawAmount, largestWithdrawAmount));
         }
 
-        String userName = JwtUtils.getUserName(httpServletRequest);
         User user = userService.getUserByName(userName);
         // 验证支付密码
         String pwd = SecureUtil.md5(request.getPwd());
