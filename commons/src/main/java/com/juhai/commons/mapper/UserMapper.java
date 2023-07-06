@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
 * @author Administrator
@@ -21,6 +22,8 @@ public interface UserMapper extends BaseMapper<User> {
      * @return
      */
     int updateUserBalance(@Param("userName") String userName, @Param("balance") BigDecimal balance);
+
+    int batchUpdateReport(List<User> list);
 }
 
 

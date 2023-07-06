@@ -59,7 +59,7 @@ public class Account implements Serializable {
     private Integer type;
 
     /**
-     * 1:系统充值 2:系统扣款 3:提现 4:投资扣款 5:投资进账 6:签到
+     * 1:系统充值 2:系统扣款 3:提现 4:投资扣款 5:投资进账 6:签到 7:提现退款 8:每日利息收益
      */
     @TableField(value = "opt_type")
     private Integer optType;
