@@ -32,7 +32,7 @@
             <view
               class="table-money"
               :class="item.amount > 0 ? 'green-text' : 'red-text'"
-              >{{ item.amount }}</view
+              >{{ item.amount > 0 ? '+' + item.amount: item.amount}}</view
             >
             <view class="line"></view>
             <view class="table-time">{{ item.optTime }}</view>
