@@ -195,4 +195,5 @@ export default {
   phoneNo: "Số  điện thoại",
   inputAddress: "Vui lòng nhập địa chỉ",
   inputPhoneNo: "Vui lòng nhập số điện thoại",
+  inviteCodeText: "ID",
 }

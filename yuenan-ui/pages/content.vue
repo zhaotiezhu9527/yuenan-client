@@ -162,8 +162,11 @@ export default {
                 projectId: this.items.projectId,
               };
               setTimeout(() => {
-                this.dataFn(this.items.projectId);
-              }, 2000);
+                // this.dataFn(this.items.projectId);
+                uni.navigateTo({
+                  url: `/pages/info?id=${items.projectId}`,
+                });
+              }, 1000);
             }
           })
           .finally(() => {
@@ -192,7 +195,7 @@ export default {
       } else if (this.form.amount >= Number(this.infos.balance)) {
         this.form.amount = Number(this.infos.balance);
       }
-      this.form.amount = this.form.amount.toFixed(3);
+      // this.form.amount = this.form.amount.toFixed(3);
     },
     subtract() {
       if (!this.items.projectAmount) return false;
@@ -204,7 +207,7 @@ export default {
         this.form.amount = this.items.minAmount;
         return false;
       }
-      this.form.amount = this.form.amount.toFixed(3);
+      // this.form.amount = this.form.amount.toFixed(3);
     },
   },
 };

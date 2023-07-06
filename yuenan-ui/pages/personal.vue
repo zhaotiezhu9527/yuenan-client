@@ -54,12 +54,12 @@
           </view>
           <view class="list-item" @click="goFundDetails">
             <image class="icon-img" src="../static/img/mine_func_zijin.png" />
-            <label>{{ $t("investmentRecords") }}</label>
+            <label>{{ $t("fundDetails") }}</label>
             <view class="icon"></view>
           </view>
           <view class="list-item" @click="goInvestmentRecords">
             <image class="icon-img" src="../static/img/mine_func_touzi.png" />
-            <label>{{ $t("fundDetails") }}</label>
+            <label>{{ $t("investmentRecords") }}</label>
             <view class="icon"></view>
           </view>
           <view class="list-item" @click="goRevenueRecords">

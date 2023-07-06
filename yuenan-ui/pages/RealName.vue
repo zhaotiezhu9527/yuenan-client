@@ -92,6 +92,9 @@ export default {
         .then((res) => {
           if (res.data.code == 0) {
             this.getInfo();
+            uni.navigateTo({
+              url: "/pages/AccountSafe",
+            });
           }
         })
         .finally(() => {

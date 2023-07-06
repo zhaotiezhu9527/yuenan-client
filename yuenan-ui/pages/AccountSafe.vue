@@ -23,6 +23,13 @@
           <label>{{ $t("userName") }}</label>
           <view class="right-text">{{ infos.userName }}</view>
         </view>
+        <view class="list margintop10 borderBottom">
+          <view class="image">
+            <image class="icon-img" src="../static/img/mine_func_code.png" />
+          </view>
+          <label>{{ $t("inviteCodeText") }}</label>
+          <view class="right-text">{{ infos.inviteCode }}</view>
+        </view>
         <view class="list margintop10 borderBottom" @click="goRealName">
           <view class="image">
             <image class="icon-img" src="../static/img/admin.png" />
