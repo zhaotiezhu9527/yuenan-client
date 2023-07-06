@@ -102,11 +102,11 @@ public class UserController {
             isRealName = 0;
         }
 
-        Map<String, String> params = paramterService.getAllParamByMap();
+//        Map<String, String> params = paramterService.getAllParamByMap();
         temp.put("isRealName", isRealName);
         temp.put("integral", 0);
-        temp.put("usdtAmount", NumberUtil.div(user.getBalance(), MapUtil.getDouble(params, "usdt_rate"), 2, RoundingMode.DOWN));
-
+//        temp.put("usdtAmount", NumberUtil.div(user.getBalance(), MapUtil.getDouble(params, "usdt_rate"), 2, RoundingMode.DOWN));
+        temp.put("usdtAmount", 0);
         List<Order> list = orderService.list(
                 new LambdaQueryWrapper<Order>()
                         .select(Order::getAmount, Order::getForecastReturnAmount)
