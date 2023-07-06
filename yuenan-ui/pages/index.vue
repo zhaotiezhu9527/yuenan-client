@@ -145,10 +145,10 @@ export default {
           img: img7,
           path: "/pages/preview",
         },
-        {
-          name: this.$t("comingSoon"),
-          img: img2,
-        },
+        // {
+        //   name: this.$t("comingSoon"),
+        //   img: img2,
+        // },
       ],
       list2: [banner1, banner2, banner3,banner4],
       shopGoods: [],
