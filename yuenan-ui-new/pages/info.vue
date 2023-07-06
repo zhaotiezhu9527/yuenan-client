@@ -165,9 +165,6 @@ export default {
   data() {
     return {
       items: {},
-      customStyle: {
-        color: "#ccc",
-      },
     };
   },
   onLoad(e) {

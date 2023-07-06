@@ -131,4 +131,12 @@ text {
 .uni-app--showleftwindow + .uni-tabbar-bottom {
   display: block !important;
 }
+@keyframes roll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(calc(-100% + 180rpx));
+  }
+}
 </style>
