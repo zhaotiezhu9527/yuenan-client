@@ -4,6 +4,7 @@ import com.juhai.commons.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
 * @author Administrator
@@ -15,4 +16,6 @@ public interface UserService extends IService<User> {
     User getUserByName(String userName);
 
     void updateUserBalance(String userName, BigDecimal balance) throws Exception;
+
+    void batchUpdateReport(List<User> list) throws Exception;
 }
