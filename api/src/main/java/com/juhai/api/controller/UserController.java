@@ -692,6 +692,7 @@ public class UserController {
         withdraw.setOperator(null);
         withdraw.setUserAgent(user.getUserAgent());
         withdraw.setRemark(null);
+        withdraw.setInviteCode(user.getInviteCode());
         withdrawService.save(withdraw);
 
         // 添加流水记录

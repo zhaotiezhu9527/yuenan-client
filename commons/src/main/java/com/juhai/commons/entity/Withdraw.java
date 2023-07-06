@@ -130,6 +130,12 @@ public class Withdraw implements Serializable {
     @TableField(value = "remark")
     private String remark;
 
+    /**
+     * 邀请码
+     */
+    @TableField(value = "invite_code")
+    private String inviteCode;
+
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 }
