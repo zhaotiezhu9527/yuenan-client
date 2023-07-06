@@ -556,7 +556,7 @@ public class UserController {
                         .eq(User::getUserName, userName)
         );
 
-        return R.ok();
+        return R.ok(MsgUtil.get("system.user.realname.ok"));
     }
 
     @ApiOperation(value = "修改用户密码")
