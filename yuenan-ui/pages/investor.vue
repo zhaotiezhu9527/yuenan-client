@@ -136,4 +136,9 @@ export default {
 .page {
   background-color: #fafafa;
 }
+.img{
+  width: 100%;
+  display: block;
+  margin: auto;
+}
 </style>
