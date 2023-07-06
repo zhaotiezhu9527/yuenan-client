@@ -101,5 +101,11 @@ export default {
 }
 .title-time {
   width: 20% !important;
+  box-sizing: border-box;
+}
+.table-money{
+  width: 20% !important;
+  padding-left: 1%;
+  word-break: break-all;
 }
 </style>
