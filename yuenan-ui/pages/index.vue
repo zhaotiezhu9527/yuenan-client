@@ -116,6 +116,7 @@ import img7 from "../static/img/func_icon_kefu.png";
 import banner1 from "../static/img/banner_13.jpg";
 import banner2 from "../static/img/banner_14.jpg";
 import banner3 from "../static/img/banner_15.jpg";
+import banner4 from "../static/img/banner_16.jpeg";
 export default {
   data() {
     return {
@@ -149,7 +150,7 @@ export default {
           img: img2,
         },
       ],
-      list2: [banner1, banner2, banner3],
+      list2: [banner1, banner2, banner3,banner4],
       shopGoods: [],
       config: {},
       infos: {},
