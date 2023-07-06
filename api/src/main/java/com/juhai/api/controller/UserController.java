@@ -188,7 +188,7 @@ public class UserController {
                 account.setOptTime(new Date());
                 account.setUserAgent(user.getUserAgent());
                 account.setRefNo(null);
-                account.setRemark("每日签到,获得奖励" + signAmount + "元");
+                account.setRemark(MsgUtil.get("system.account.type6"));
                 accountService.save(account);
                 // 设置为今日已签到
                 redisTemplate.opsForValue().set(signKey, "sign", 1, TimeUnit.DAYS);
@@ -357,18 +357,18 @@ public class UserController {
         List<Account> list = (List<Account>) page.getList();
         if (CollUtil.isNotEmpty(list)) {
             JSONArray arr = new JSONArray();
-            Map<Integer, String> map = new HashMap<>();
-            map.put(1, MsgUtil.get("system.account.type1"));
-            map.put(2, MsgUtil.get("system.account.type2"));
-            map.put(3, MsgUtil.get("system.account.type3"));
-            map.put(4, MsgUtil.get("system.account.type4"));
-            map.put(5, MsgUtil.get("system.account.type5"));
-            map.put(6, MsgUtil.get("system.account.type6"));
-            map.put(7, MsgUtil.get("system.account.type7"));
+//            Map<Integer, String> map = new HashMap<>();
+//            map.put(1, MsgUtil.get("system.account.type1"));
+//            map.put(2, MsgUtil.get("system.account.type2"));
+//            map.put(3, MsgUtil.get("system.account.type3"));
+//            map.put(4, MsgUtil.get("system.account.type4"));
+//            map.put(5, MsgUtil.get("system.account.type5"));
+//            map.put(6, MsgUtil.get("system.account.type6"));
+//            map.put(7, MsgUtil.get("system.account.type7"));
             for (Account temp : list) {
                 JSONObject obj = new JSONObject();
-//                obj.put("remark", temp.getRemark());
-                obj.put("remark", map.getOrDefault(temp.getOptType(), "-"));
+                obj.put("remark", temp.getRemark());
+//                obj.put("remark", map.getOrDefault(temp.getOptType(), "-"));
                 obj.put("amount", temp.getOptAmount());
                 obj.put("optTime", temp.getOptTime());
                 arr.add(obj);
@@ -713,7 +713,7 @@ public class UserController {
         account.setOptTime(now);
         account.setUserAgent(user.getUserAgent());
         account.setRefNo(orderNo);
-        account.setRemark("提现金额:" + amount + "元");
+        account.setRemark(MsgUtil.get("system.account.type3"));
         accountService.save(account);
 
         // 记录报表

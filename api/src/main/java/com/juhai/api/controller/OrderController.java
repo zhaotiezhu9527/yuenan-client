@@ -130,7 +130,7 @@ public class OrderController {
         account.setOptTime(new Date());
         account.setUserAgent(user.getUserAgent());
         account.setRefNo(orderNo);
-        account.setRemark("投资项目:" + project.getProjectName() + ",使用余额" + amount + "元");
+        account.setRemark("Dự án đầu tư:" + project.getProjectName());
         accountService.save(account);
 
         // 记录报表

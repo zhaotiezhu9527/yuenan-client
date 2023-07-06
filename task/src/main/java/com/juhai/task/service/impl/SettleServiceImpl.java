@@ -64,7 +64,7 @@ public class SettleServiceImpl implements SettleService {
         account.setOptTime(now);
         account.setUserAgent(order.getUserAgent());
         account.setRefNo(order.getOrderNo());
-        account.setRemark(order.getProjectName() + "第一期收益" + amount + "元");
+        account.setRemark("Dự án đầu tư:" + order.getProjectName());
         account.setAccountNo(IdUtil.getSnowflakeNextIdStr());
         accountService.save(account);
 
