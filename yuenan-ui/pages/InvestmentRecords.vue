@@ -41,7 +41,7 @@
             <view class="line"></view>
             <view class="table-time">
               <label
-                class="blue-text"
+                class="blue-text display-block"
                 @click="goInvestmentDetails(item.orderNo)"
               >
                 {{ $t("look") }}
