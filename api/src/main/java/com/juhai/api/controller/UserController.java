@@ -37,7 +37,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -608,6 +607,13 @@ public class UserController {
     @ApiOperation(value = "用户提现")
     @PostMapping("/withdraw")
     public R withdraw(@Validated WithdrawRequest request, HttpServletRequest httpServletRequest) throws Exception {
+        String userName = JwtUtils.getUserName(httpServletRequest);
+        // 查询是否有投资记录
+        long orderCounts = orderService.count(new LambdaQueryWrapper<Order>().eq(Order::getUserName, userName));
+        if (orderCounts <= 0) {
+            return R.error(MsgUtil.get("system.withdraw.noorder"));
+        }
+
         // 验证类型
         if (!StringUtils.equals(request.getType(), "1") && !StringUtils.equals(request.getType(), "2")) {
             return R.error(MsgUtil.get("system.param.err"));
@@ -641,7 +647,6 @@ public class UserController {
             return R.error(StrUtil.format(MsgUtil.get("system.withdraw.limitamount"), leastWithdrawAmount, largestWithdrawAmount));
         }
 
-        String userName = JwtUtils.getUserName(httpServletRequest);
         User user = userService.getUserByName(userName);
         // 验证支付密码
         String pwd = SecureUtil.md5(request.getPwd());
