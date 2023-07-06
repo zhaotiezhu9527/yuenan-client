@@ -365,6 +365,7 @@ public class UserController {
             map.put(4, MsgUtil.get("system.account.type4"));
             map.put(5, MsgUtil.get("system.account.type5"));
             map.put(6, MsgUtil.get("system.account.type6"));
+            map.put(7, MsgUtil.get("system.account.type7"));
             for (Account temp : list) {
                 JSONObject obj = new JSONObject();
 //                obj.put("remark", temp.getRemark());
