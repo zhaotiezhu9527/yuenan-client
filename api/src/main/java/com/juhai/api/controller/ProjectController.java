@@ -47,7 +47,7 @@ public class ProjectController {
         List<Project> list = projectService.list(
                 new LambdaQueryWrapper<Project>()
                         .eq(Project::getStatus, 0)
-                        .orderByDesc(Project::getSort)
+                        .orderByAsc(Project::getSort)
         );
         JSONArray array = new JSONArray();
         if (CollUtil.isNotEmpty(list)) {
