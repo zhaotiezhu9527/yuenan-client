@@ -1,5 +1,5 @@
 {
-  "name": "sinh học anke",
+  "name": "ACV",
   "appid": "__UNI__AA33E97",
   "description": "",
   "versionName": "1.0.4",
@@ -107,7 +107,7 @@
   },
   "vueVersion": "2",
   "h5": {
-    "title": "sinh học anke",
+    "title": "ACV",
     "template": "index.html",
     "router": {
       "mode": "hash",

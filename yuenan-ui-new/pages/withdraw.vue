@@ -162,6 +162,12 @@ export default {
             this.$base.show(res.data.msg);
             this.amount = undefined;
             this.pwd = "";
+            setTimeout(() => {
+              // this.dataFn(this.items.projectId);
+              uni.navigateTo({
+                url: `/pages/personal`,
+              });
+            }, 1000);
           }
         })
         .finally(() => {

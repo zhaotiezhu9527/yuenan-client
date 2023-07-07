@@ -47,33 +47,6 @@
         </view>
         <!-- 列表 -->
         <view class="list">
-          <!-- <view
-            v-if="config.ouyi_download_url"
-            class="list-item"
-            @click="downloadChange(config.ouyi_download_url)"
-          >
-            <image class="icon-img" src="../static/img/okx_app_icon.png" />
-            <label>{{ $t("ouyi_download_url") }}</label>
-            <view class="icon"></view>
-          </view> -->
-          <!-- <view
-            v-if="config.bian_download_url"
-            class="list-item"
-            @click="downloadChange(config.bian_download_url)"
-          >
-            <image class="icon-img" src="../static/img/bian_app_icon.png" />
-            <label>{{ $t("bian_download_url") }}</label>
-            <view class="icon"></view>
-          </view> -->
-          <!-- <view
-            v-if="config.huobi_download_url"
-            class="list-item"
-            @click="downloadChange(config.huobi_download_url)"
-          >
-            <image class="icon-img" src="../static/img/icon_app_huobi.png" />
-            <label>{{ $t("huobi_download_url") }}</label>
-            <view class="icon"></view>
-          </view> -->
           <view class="list-item" @click="sign">
             <image class="icon-img" src="../static/img/mine_func_qiandao.png" />
             <label>{{ $t("sign") }}</label>
@@ -81,12 +54,12 @@
           </view>
           <view class="list-item" @click="goFundDetails">
             <image class="icon-img" src="../static/img/mine_func_zijin.png" />
-            <label>{{ $t("investmentRecords") }}</label>
+            <label>{{ $t("fundDetails") }}</label>
             <view class="icon"></view>
           </view>
           <view class="list-item" @click="goInvestmentRecords">
             <image class="icon-img" src="../static/img/mine_func_touzi.png" />
-            <label>{{ $t("fundDetails") }}</label>
+            <label>{{ $t("investmentRecords") }}</label>
             <view class="icon"></view>
           </view>
           <view class="list-item" @click="goRevenueRecords">
@@ -99,7 +72,7 @@
               class="icon-img"
               src="../static/img/mine_func_chongzhi.png"
             />
-            <label>{{ $t("WithdrawalRecords") }}</label>
+            <label>{{ $t("topupRecords") }}</label>
             <view class="icon"></view>
           </view>
           <view class="list-item" @click="goWithdrawalRecords">
@@ -127,11 +100,6 @@
             <label>{{ $t("idCard") }}</label>
             <view class="icon"></view>
           </view>
-          <!-- <view class="list-item" @click="goBindUSDT">
-            <image class="icon-img" src="../static/img/mine_func_usdt.png" />
-            <label>{{ $t("USDTBind") }}</label>
-            <view class="icon"></view>
-          </view> -->
         </view>
         <!-- 退出登录 -->
         <u-button class="logout" @click="show = true">
@@ -148,6 +116,8 @@
       :asyncClose="true"
       showCancelButton
       confirmColor="#4b80af"
+      :confirmText="$t('logout')"
+      :cancelText="$t('quxiao')"
     >
       <view class="content">{{ $t("loginOutTips") }}</view>
     </u-modal>

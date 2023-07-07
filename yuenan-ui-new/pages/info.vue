@@ -35,7 +35,7 @@
                 ><text>{{
                   (items.minAmount * (items.incomeRate / 100)).toFixed(0)
                 }}</text
-                >{{ $t("money") }}{{ $t("situp") }}</view
+                >{{ $t("money") }}</view
               >
             </view>
             <view class="li">
