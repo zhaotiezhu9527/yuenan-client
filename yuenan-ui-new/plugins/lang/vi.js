@@ -69,7 +69,7 @@ export default {
   withdrawalUsdt: " ",
   withdrawalBank: "Rút tiền về thẻ ngân hàng ",
   withdrawalType: "Chọn phương thức rút tiền ",
-  money: "đồng",
+  money: "VNĐ",
   rmb: "Việt nam đồng  ( VNĐ)",
   situp: "Bắt đầu từ",
   inputNoBalance: "Số tiền đã nhập không được lớn hơn số tiền có thể rút",
@@ -185,8 +185,7 @@ export default {
   balance: "Số dư (VND) Điểm thưởng (0)",
   investmentProject: "Dự án đầu tư",
   about: "Giới thiệu",
-  calculator: "Thu nhập",
-  // calculator: "Máy tính",   (换成 收入 ：)
+  calculator: "Thu nhập", // calculator: "Máy tính",   (换成 收入 ：)
   comingSoon: "Vui lòng chờ đợi",
   topUpUSDT: "Tôi muốn nạp USDT",
   freeRegistration: "Đăng ký miễn phí",
@@ -201,5 +200,5 @@ export default {
   phoneNo: "Số  điện thoại",
   inputAddress: "Vui lòng nhập địa chỉ",
   inputPhoneNo: "Vui lòng nhập số điện thoại",
-  uid: "Giới thiệu mã ID",
+  inviteCodeText: "ID",
 };

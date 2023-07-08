@@ -36,6 +36,8 @@
   .table-money {
     width: 20%;
     text-align: center;
+    box-sizing: border-box;
+    word-break: break-all;
   }
   .table-time {
     width: 15%;
@@ -57,4 +59,7 @@ label {
 }
 .scroll {
   height: calc(100vh - 104rpx - var(--status-bar-height) - 60rpx) !important;
+}
+.display-block {
+  display: block;
 }

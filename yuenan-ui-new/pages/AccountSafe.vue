@@ -27,7 +27,7 @@
           <view class="image">
             <image class="icon-img3" src="../static/img/uid.png" />
           </view>
-          <label>{{ $t("uid") }}</label>
+          <label>{{ $t("inviteCodeText") }}</label>
           <view class="right-text">{{ infos.inviteCode }}</view>
         </view>
         <view class="list margintop10 borderBottom" @click="goRealName">

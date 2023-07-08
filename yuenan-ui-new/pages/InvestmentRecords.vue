@@ -30,7 +30,7 @@
         <u-list-item v-for="(item, index) in list" :key="index">
           <view class="content">
             <view class="table-title">
-              {{ item.projectName }}
+              {{ item.projectName }} {{ $t("InterestRebate") }}
             </view>
             <view class="line"></view>
             <view class="table-money green-text">{{ item.amount }}</view>

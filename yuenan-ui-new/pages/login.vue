@@ -34,8 +34,24 @@
               :placeholder="$t('loginPass')"
               clearable
               border="none"
+              v-show="passicon1"
               v-model="password"
-            ></u-input>
+            >
+              <view slot="suffix" @click="pwdChange">
+                <u-icon name="eye" color="#666" size="46rpx"></u-icon>
+              </view>
+            </u-input>
+            <u-input
+              :placeholder="$t('loginPass')"
+              clearable
+              v-show="!passicon1"
+              border="none"
+              v-model="password"
+            >
+              <view slot="suffix" @click="pwdChange">
+                <u-icon name="eye-off" color="#666" size="46rpx"></u-icon>
+              </view>
+            </u-input>
           </u-form-item>
         </u-form>
         <view class="btns">
@@ -58,12 +74,16 @@
 export default {
   data() {
     return {
+      passicon1: true,
       password: "",
       userPhone: "",
       loading: false,
     };
   },
   methods: {
+    pwdChange() {
+      this.passicon1 = !this.passicon1;
+    },
     changeLang(e) {
       this.$i18n.locale = e;
       uni.setStorageSync("lang", e);

@@ -94,12 +94,8 @@
                 </text>
                 <text>{{ $t("interest") }}</text>
               </view>
-              <view class="btn" v-if="item.status == 0">{{
-                $t("investment")
-              }}</view>
-              <view class="btn gray-btn" v-else-if="item.status == 1">{{
-                $t("investment")
-              }}</view>
+              <view class="btn">{{ $t("investment") }}</view>
+              <!-- <view class="btn gray-btn" v-else-if="item.status == 1">{{ $t("investment") }}</view> -->
             </view>
             <view class="progress">
               <view class="txt">{{ $t("progress") }}：</view>
@@ -134,6 +130,7 @@ import img7 from "../static/img/func_icon_kefu.png";
 import banner1 from "../static/img/banner_13.jpg";
 import banner2 from "../static/img/banner_14.jpg";
 import banner3 from "../static/img/banner_15.jpg";
+import banner4 from "../static/img/banner_16.jpg";
 export default {
   data() {
     return {
@@ -151,6 +148,11 @@ export default {
           img: img4,
           path: "/pages/preview",
         },
+        // {
+        //   name: this.$t("topUpUSDT"),
+        //   img: img4,
+        //   path: "/pages/preview",
+        // },
         { name: this.$t("mywithdraw"), img: img5, path: "/pages/withdraw" },
         {
           name: this.$t("freeRegistration"),
@@ -162,8 +164,12 @@ export default {
           img: img7,
           path: "/pages/preview",
         },
+        // {
+        //   name: this.$t("comingSoon"),
+        //   img: img2,
+        // },
       ],
-      list2: [banner1, banner2, banner3],
+      list2: [banner1, banner2, banner3, banner4],
       shopGoods: [],
       config: {},
       infos: {},
@@ -237,18 +243,20 @@ export default {
             url: "/pages/withdraw",
           });
         }
+      } else if (name === this.$t("comingSoon")) {
+        return this.$base.show(this.$t("comingSoon"));
       }
     },
     routePath(item) {
-      if (item.status === 0) {
-        this.$api.project_info(item.projectId).then(({ data }) => {
-          if (data.code == 0) {
-            uni.navigateTo({
-              url: `/pages/info?id=${item.projectId}`,
-            });
-          }
-        });
-      }
+      // if(item.status === 0){
+      this.$api.project_info(item.projectId).then(({ data }) => {
+        if (data.code == 0) {
+          uni.navigateTo({
+            url: `/pages/info?id=${item.projectId}`,
+          });
+        }
+      });
+      // }
     },
     guaranteeCompanyFn(name) {
       return name ? name.charAt(name.length - 1) : "-";
