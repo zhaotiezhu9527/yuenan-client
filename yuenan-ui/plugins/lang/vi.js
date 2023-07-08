@@ -82,7 +82,7 @@ export default {
   topup: "Nạp tiền",
   topupRecords: "Lịch sử nạp tiền",
   topupAmount: "Số tiền nạp",
-  topupType: "Phương thức nạp tiền",
+  topupType: "loại nạp tiền",
   topupTime: "Thời gian nạp tiền",
   topupSuccess: "Nạp tiền thành công",
   topupError: "Nạp tiền thất bại",
