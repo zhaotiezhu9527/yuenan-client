@@ -33,11 +33,11 @@ const PATH_URL =
     ? "http://yuenanqt.juhai.xyz/yuenan-qtapi-test/" //测试
     // : "/api/";//h5打包地址
     // :  "https://www.anke9988.com/DISOZzbHUGxkbPh2/"; //杨杨a1 安科app打包地址
-// : "/DISOZzbHUGxkbPh2/"; //杨杨a1 安科h5打包地址
-// : "https://juhai.top/"; //阿明a2 安科app打包地址
-: "http://yuenanqt.juhai.xyz/yuenan-qtapi-test/"; //app打包地址测试
-// : "/yuenan-qtapi-test/"; //app打包地址测试
-// : "/lCY45gucOU2CMttF/"; //阿明a2 安科h5打包地址
+    // : "/DISOZzbHUGxkbPh2/"; //杨杨a1 安科h5打包地址
+    // : "https://juhai.top/"; //阿明a2 安科app打包地址
+    : "http://yuenanqt.juhai.xyz/yuenan-qtapi-test/"; //app打包地址测试
+    // : "/yuenan-qtapi-test/"; //app打包地址测试
+    // : "/lCY45gucOU2CMttF/"; //阿明a2 安科h5打包地址
 
 export const upload = (params) => {
   let header = {
