@@ -32,7 +32,9 @@ export default {
           let new_app = data.data.version.find(
             (item) => item.platForm === uni.getSystemInfoSync().platform
           );
-          if (that_app.appWgtVersion !== new_app.version) {
+          let newVersion = new_app.version.replaceAll('.','')
+          let oldVersion = that_app.replaceAll('.','')
+          if (oldVersion < newVersion) {
             uni.showModal({
               title: this.$t("tips"),
               content: this.$t("download"),
