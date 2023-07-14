@@ -148,10 +148,11 @@ export default {
   },
   async onLoad() {
     await this.$onLaunched;
-    this.config = uni.getStorageSync("system_config");
+    // this.config = uni.getStorageSync("system_config");
   },
   onShow() {
     this.getInfo();
+    this.systemFn()
   },
   methods: {
     pathChange() {
@@ -254,6 +255,13 @@ export default {
         }
       });
     },
+    systemFn(){
+      this.$api.system_config().then(({ data }) => {
+        if (data.code == 0) {
+          this.config = data.data
+        }
+      });
+    }
   },
 };
 </script>

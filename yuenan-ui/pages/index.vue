@@ -158,7 +158,7 @@ export default {
   },
   async onLoad() {
     await this.$onLaunched;
-    this.config = uni.getStorageSync("system_config");
+    // this.config = uni.getStorageSync("system_config");
     this.infos = uni.getStorageSync("infos");
   },
   onShow() {
@@ -168,6 +168,7 @@ export default {
         this.shopGoods = data.data;
       }
     });
+    this.systemFn()
   },
   methods: {
     change({ name, path, url }) {
@@ -226,6 +227,13 @@ export default {
     scheduleFn(page) {
       return (Number(page) > 100 ? 100 : Number(page)) || 0;
     },
+    systemFn(){
+      this.$api.system_config().then(({ data }) => {
+        if (data.code == 0) {
+          this.config = data.data
+        }
+      });
+    }
   },
 };
 </script>

@@ -31,11 +31,18 @@ export default {
       config: {}, //配置
     };
   },
-  async onShow() {
-    await this.$onLaunched;
-    this.config = uni.getStorageSync("system_config");
+  onShow() {
+    this.systemFn()
   },
-  methods: {},
+  methods: {
+    systemFn(){
+      this.$api.system_config().then(({ data }) => {
+        if (data.code == 0) {
+          this.config = data.data
+        }
+      });
+    }
+  },
 };
 </script>
 
