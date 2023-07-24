@@ -138,6 +138,7 @@ text {
   display: block !important;
 }
 .pb-100 {
-  padding-bottom: calc(100rpx + var(--status-bar-height));
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 </style>

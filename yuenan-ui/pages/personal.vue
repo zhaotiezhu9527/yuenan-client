@@ -98,9 +98,11 @@
         </view>
       </view>
       <!-- 退出登录 -->
-      <u-button class="logout" @click="show = true">
-        {{ $t("loginOut") }}
-      </u-button>
+      <view class="logoutStyle">
+        <u-button class="logout" @click="show = true">
+          {{ $t("loginOut") }}
+        </u-button>
+      </view>
     </view>
     <u-modal
       :show="show"
@@ -379,10 +381,13 @@ export default {
     height: 84rpx;
     text-align: center;
     line-height: 84rpx;
-    margin: 30rpx auto;
+    margin: 0 auto;
     border-radius: 40rpx;
     color: #fff;
     background-color: #e15241;
+  }
+  .logoutStyle {
+    padding: 30rpx 0;
   }
 }
 .content {
