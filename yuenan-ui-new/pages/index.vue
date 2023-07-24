@@ -144,7 +144,7 @@ export default {
         { name: this.$t("calculator"), img: img2, path: "/pages/personal" },
         { name: this.$t("sign"), img: img3 },
         {
-          name: this.$t("topUpUSDT"),
+          name: this.$t("topup"),
           img: img4,
           path: "/pages/preview",
         },
@@ -267,7 +267,7 @@ export default {
             this.$base.show(data.msg + "~");
           }
         });
-      } else if ([this.$t("topUpUSDT")].includes(name)) {
+      } else if ([this.$t("topup")].includes(name)) {
         uni.navigateTo({
           url: "/pages/onlineService",
         });
