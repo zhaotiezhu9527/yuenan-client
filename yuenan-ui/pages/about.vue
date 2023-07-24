@@ -9,18 +9,12 @@
       leftIconSize="0"
       safe-area-inset-top
       bgColor="#f6d658"
-      height="52px"
+      height="104rpx"
       titleStyle="color:#000;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>
-    <view class="wrap">
-      <scroll-view scroll-y class="scroll">
-        <image
-          class="image"
-          mode="widthFix"
-          src="../static/img/about.png"
-        />
-      </scroll-view>
+    <view class="wrap pb-100">
+      <image class="image" mode="widthFix" src="../static/img/about.png" />
     </view>
   </view>
 </template>
@@ -36,9 +30,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.scroll {
-  height: calc(100vh - 210rpx + var(--status-bar-height));
-}
 .image {
   width: 100vw;
 }

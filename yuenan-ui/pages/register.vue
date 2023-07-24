@@ -10,17 +10,13 @@
       bgColor="#f6d658"
       leftIconColor="#fff"
       leftIconSize="32"
-      height="52px"
+      height="104rpx"
       titleStyle="color:#000;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>
     <view class="wrap">
       <view class="logo">
-        <image
-          class="img"
-          mode="widthFix"
-          src="../static/img/login_logo.jpg"
-        />
+        <image class="img" mode="widthFix" src="../static/img/login_logo.jpg" />
       </view>
       <view class="form">
         <u-form ref="uForm" labelPosition="left" labelWidth="124">
@@ -166,15 +162,15 @@ export default {
         .user_register(DATA_OBJ)
         .then((res) => {
           if (res.data.code == 0) {
-            this.$base.show(this.$t(res.data.msg))
+            this.$base.show(this.$t(res.data.msg));
             // uni.setStorage({
-              // key: "token",
-              // data: res.data.token,
-              // success: function () {
-                setTimeout(() => {
-                  uni.switchTab({ url: "/pages/login" });
-                },1000)
-              // },
+            // key: "token",
+            // data: res.data.token,
+            // success: function () {
+            setTimeout(() => {
+              uni.switchTab({ url: "/pages/login" });
+            }, 1000);
+            // },
             // });
           }
         })

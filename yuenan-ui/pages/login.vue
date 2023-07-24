@@ -9,17 +9,13 @@
       leftIconSize="0"
       safe-area-inset-top
       bgColor="#f6d658"
-      height="52px"
+      height="104rpx"
       titleStyle="color:#000;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>
     <view class="wrap">
       <view class="logo">
-        <image
-          class="img"
-          mode="widthFix"
-          src="../static/img/login_logo.jpg"
-        />
+        <image class="img" mode="widthFix" src="../static/img/login_logo.jpg" />
       </view>
       <view class="from">
         <u-form ref="uForm" labelPosition="left" labelWidth="124">

@@ -9,7 +9,7 @@
       leftIconSize="0"
       safe-area-inset-top
       bgColor="#4b80af"
-      height="52px"
+      height="104rpx"
       titleStyle="color:#ffffff;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>

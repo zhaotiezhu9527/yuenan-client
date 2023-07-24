@@ -91,8 +91,9 @@
     "selectedColor": "#4b80af",
     "borderStyle": "#eeeeee",
     "backgroundColor": "#ffffff",
-    "fontSize": "12px",
-    "iconWidth": "22px",
+    "fontSize": "24rpx",
+    "height": "100rpx",
+    "iconWidth": "44rpx",
     "list": [
       {
         "pagePath": "pages/index",

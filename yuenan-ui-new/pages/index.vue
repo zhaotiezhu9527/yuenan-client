@@ -9,111 +9,105 @@
       leftIconSize="0"
       safe-area-inset-top
       bgColor="#4b80af"
-      height="52px"
+      height="104rpx"
       titleStyle="color:#ffffff;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>
-    <view class="wrap">
-      <scroll-view scroll-y class="scroll">
-        <view class="banner">
-          <u-swiper :list="list2" class="my-swipe" indicator> </u-swiper>
+    <view class="wrap pb-100">
+      <view class="banner">
+        <u-swiper :list="list2" class="my-swipe" indicator> </u-swiper>
+      </view>
+      <view class="content">
+        <view
+          class="item"
+          v-for="(item, index) in list"
+          :key="index"
+          @click="change(item)"
+        >
+          <image class="img" mode="heightFix" :src="item.img" />
+          <text class="txt">{{ item.name }}</text>
         </view>
-        <view class="content">
-          <view
-            class="item"
-            v-for="(item, index) in list"
-            :key="index"
-            @click="change(item)"
-          >
-            <image class="img" mode="heightFix" :src="item.img" />
-            <text class="txt">{{ item.name }}</text>
-          </view>
-        </view>
-        <view class="notice">
-          <!-- <u-notice-bar
+      </view>
+      <view class="notice">
+        <!-- <u-notice-bar
             color="#ffffff"
             bgColor="#e15241"
             scrollable
             fontSize="28rpx"
             :text="config.home_notice || ''"
           /> -->
-          <view class="notice__inner">
-            <view
-              class="notice__box"
-              :style="{ animation: `roll ${nav.length}s linear infinite` }"
-            >
-              <view
-                class="notice__item"
-                v-for="(item, index) in nav"
-                :key="index"
-              >
-                {{ item }}
-              </view>
-            </view>
-          </view>
-        </view>
-        <view class="list">
+        <view class="notice__inner">
           <view
-            class="view"
-            v-for="(item, index) in shopGoods"
-            :key="index"
-            @click="routePath(item)"
+            class="notice__box"
+            :style="{ animation: `roll ${nav.length}s linear infinite` }"
           >
-            <image class="img" :src="item.img" mode="widthFix" />
-            <view class="name">
-              <text></text>
-              <text>{{ item.projectName }}</text>
-            </view>
-            <view class="rate">
-              <view class="li">
-                <view class="num"
-                  ><text>{{ item.incomeRate }}</text>
-                  %
-                </view>
-                <view class="con">{{ $t("incomeRate") }}</view>
-              </view>
-              <view class="li">
-                <view class="num">
-                  <text>{{ item.limitTime }}</text>
-                  {{ $t("limitTime") }}
-                </view>
-                <view class="con">{{ $t("deadline") }}</view></view
-              >
-              <view class="li">
-                <view class="num"
-                  ><text>{{ item.minAmount }}</text>
-                  {{ $t("money") }}
-                </view>
-                <view class="con">{{ $t("minAmount") }}</view></view
-              >
-            </view>
-            <view class="investor">
-              <view class="con">
-                <text>
-                  {{ $t("scale") }}：{{ item.projectAmount }}{{ $t("money") }}
-                </text>
-                <text>{{ $t("interest") }}</text>
-              </view>
-              <view class="btn">{{ $t("investment") }}</view>
-              <!-- <view class="btn gray-btn" v-else-if="item.status == 1">{{ $t("investment") }}</view> -->
-            </view>
-            <view class="progress">
-              <view class="txt">{{ $t("progress") }}：</view>
-              <u-line-progress
-                :percentage="scheduleFn(item.schedule)"
-                :showText="false"
-                activeColor="#2196f3"
-              ></u-line-progress>
-              <view class="number">{{ item.schedule }}%</view>
+            <view
+              class="notice__item"
+              v-for="(item, index) in nav"
+              :key="index"
+            >
+              {{ item }}
             </view>
           </view>
-          <u-empty
-            class="empty2"
-            :text="$t('nodata')"
-            v-if="!shopGoods.length"
-          />
         </view>
-      </scroll-view>
+      </view>
+      <view class="list">
+        <view
+          class="view"
+          v-for="(item, index) in shopGoods"
+          :key="index"
+          @click="routePath(item)"
+        >
+          <image class="img" :src="item.img" mode="widthFix" />
+          <view class="name">
+            <text></text>
+            <text>{{ item.projectName }}</text>
+          </view>
+          <view class="rate">
+            <view class="li">
+              <view class="num"
+                ><text>{{ item.incomeRate }}</text>
+                %
+              </view>
+              <view class="con">{{ $t("incomeRate") }}</view>
+            </view>
+            <view class="li">
+              <view class="num">
+                <text>{{ item.limitTime }}</text>
+                {{ $t("limitTime") }}
+              </view>
+              <view class="con">{{ $t("deadline") }}</view></view
+            >
+            <view class="li">
+              <view class="num"
+                ><text>{{ item.minAmount }}</text>
+                {{ $t("money") }}
+              </view>
+              <view class="con">{{ $t("minAmount") }}</view></view
+            >
+          </view>
+          <view class="investor">
+            <view class="con">
+              <text>
+                {{ $t("scale") }}：{{ item.projectAmount }}{{ $t("money") }}
+              </text>
+              <text>{{ $t("interest") }}</text>
+            </view>
+            <view class="btn">{{ $t("investment") }}</view>
+            <!-- <view class="btn gray-btn" v-else-if="item.status == 1">{{ $t("investment") }}</view> -->
+          </view>
+          <view class="progress">
+            <view class="txt">{{ $t("progress") }}：</view>
+            <u-line-progress
+              :percentage="scheduleFn(item.schedule)"
+              :showText="false"
+              activeColor="#2196f3"
+            ></u-line-progress>
+            <view class="number">{{ item.schedule }}%</view>
+          </view>
+        </view>
+        <u-empty class="empty2" :text="$t('nodata')" v-if="!shopGoods.length" />
+      </view>
     </view>
   </view>
 </template>
@@ -223,13 +217,12 @@ export default {
         "0984****343 " + this.$t("calculator") + " : +54232190",
         "0984****743 " + this.$t("calculator") + " : +30727630",
         "0984****507 " + this.$t("calculator") + " : +192328850",
-                                         
       ],
     };
   },
   async onLoad() {
     await this.$onLaunched;
-    this.config = uni.getStorageSync("system_config");
+    // this.config = uni.getStorageSync("system_config");
     this.infos = uni.getStorageSync("infos");
   },
   onShow() {
@@ -244,6 +237,7 @@ export default {
         }
       }
     });
+    this.systemFn();
   },
   methods: {
     change({ name, path, url }) {
@@ -304,6 +298,13 @@ export default {
     scheduleFn(page) {
       return (Number(page) > 100 ? 100 : Number(page)) || 0;
     },
+    systemFn() {
+      this.$api.system_config().then(({ data }) => {
+        if (data.code == 0) {
+          this.config = data.data;
+        }
+      });
+    },
   },
 };
 </script>
@@ -312,9 +313,6 @@ export default {
 @import "../static/list.scss";
 .list {
   background-color: #fff;
-}
-.scroll {
-  height: calc(100vh - 210rpx + var(--status-bar-height));
 }
 .page {
   background-color: #fafafa;

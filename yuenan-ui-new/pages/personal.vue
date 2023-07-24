@@ -9,104 +9,99 @@
       leftIconSize="0"
       safe-area-inset-top
       bgColor="#4b80af"
-      height="52px"
+      height="104rpx"
       titleStyle="color:#ffffff;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>
-    <scroll-view scroll-y class="scroll">
-      <view class="wrap">
-        <!-- 头部 -->
-        <view class="head">
-          <view class="head-text">
-            <label>{{ $t("userAccount") }}：{{ userData.userName }}</label>
-            <label>
-              {{ $t("userLevelName") }}：{{ userData.userLevelName }}
-            </label>
-          </view>
-          <view class="head-money"> {{ userData.balance }} </view>
-          <view class="head-integral"> {{ $t("balance") }}</view>
+    <view class="wrap pb-100">
+      <!-- 头部 -->
+      <view class="head">
+        <view class="head-text">
+          <label>{{ $t("userAccount") }}：{{ userData.userName }}</label>
+          <label>
+            {{ $t("userLevelName") }}：{{ userData.userLevelName }}
+          </label>
         </view>
-        <view class="money">
-          <view class="interest">
-            <view>{{ userData.waitReturnInterest }}</view>
-            <view>{{ $t("waitReturnInterest") }}（{{ $t("money") }}）</view>
-          </view>
-          <view class="principal">
-            <view>{{ userData.waitReturnPrincipal }}</view>
-            <view>{{ $t("waitReturnPrincipal") }}（{{ $t("money") }}）</view>
-          </view>
+        <view class="head-money"> {{ userData.balance }} </view>
+        <view class="head-integral"> {{ $t("balance") }}</view>
+      </view>
+      <view class="money">
+        <view class="interest">
+          <view>{{ userData.waitReturnInterest }}</view>
+          <view>{{ $t("waitReturnInterest") }}（{{ $t("money") }}）</view>
         </view>
-        <!-- 按钮 -->
-        <view class="button-box">
-          <u-button class="button-class" @click="pathChange">
-            {{ $t("topup") }}
-          </u-button>
-          <u-button class="button-class" @click="goWithdraw">
-            {{ $t("withdrawal") }}
-          </u-button>
+        <view class="principal">
+          <view>{{ userData.waitReturnPrincipal }}</view>
+          <view>{{ $t("waitReturnPrincipal") }}（{{ $t("money") }}）</view>
         </view>
-        <!-- 列表 -->
-        <view class="list">
-          <view class="list-item" @click="sign">
-            <image class="icon-img" src="../static/img/mine_func_qiandao.png" />
-            <label>{{ $t("sign") }}</label>
-            <view class="icon"></view>
-          </view>
-          <view class="list-item" @click="goFundDetails">
-            <image class="icon-img" src="../static/img/mine_func_zijin.png" />
-            <label>{{ $t("fundDetails") }}</label>
-            <view class="icon"></view>
-          </view>
-          <view class="list-item" @click="goInvestmentRecords">
-            <image class="icon-img" src="../static/img/mine_func_touzi.png" />
-            <label>{{ $t("investmentRecords") }}</label>
-            <view class="icon"></view>
-          </view>
-          <view class="list-item" @click="goRevenueRecords">
-            <image class="icon-img" src="../static/img/mine_func_shouyi.png" />
-            <label>{{ $t("revenueRecords") }}</label>
-            <view class="icon"></view>
-          </view>
-          <view class="list-item" @click="goRechargeRecord">
-            <image
-              class="icon-img"
-              src="../static/img/mine_func_chongzhi.png"
-            />
-            <label>{{ $t("topupRecords") }}</label>
-            <view class="icon"></view>
-          </view>
-          <view class="list-item" @click="goWithdrawalRecords">
-            <image class="icon-img" src="../static/img/mine_func_tixian.png" />
-            <label>{{ $t("WithdrawalRecords") }}</label>
-            <view class="icon"></view>
-          </view>
-        </view>
-        <view class="list">
-          <view class="list-item" @click="goAccountSafe">
-            <image class="icon-img" src="../static/img/mine_func_anquan.png" />
-            <label>{{ $t("AccountSafe") }}</label>
-            <view class="icon"></view>
-          </view>
-          <view
-            class="list-item"
-            @click="goBindBank(userData.bankName, userData.bankCardNum)"
-          >
-            <image class="icon-img" src="../static/img/mine_func_yinhang.png" />
-            <label>{{ $t("bankCardNumTitle") }}</label>
-            <view class="icon"></view>
-          </view>
-          <view class="list-item" @click="goRealName">
-            <image class="icon-img" src="../static/img/mine_func_shiming.png" />
-            <label>{{ $t("idCard") }}</label>
-            <view class="icon"></view>
-          </view>
-        </view>
-        <!-- 退出登录 -->
-        <u-button class="logout" @click="show = true">
-          {{ $t("loginOut") }}
+      </view>
+      <!-- 按钮 -->
+      <view class="button-box">
+        <u-button class="button-class" @click="pathChange">
+          {{ $t("topup") }}
+        </u-button>
+        <u-button class="button-class" @click="goWithdraw">
+          {{ $t("withdrawal") }}
         </u-button>
       </view>
-    </scroll-view>
+      <!-- 列表 -->
+      <view class="list">
+        <view class="list-item" @click="sign">
+          <image class="icon-img" src="../static/img/mine_func_qiandao.png" />
+          <label>{{ $t("sign") }}</label>
+          <view class="icon"></view>
+        </view>
+        <view class="list-item" @click="goFundDetails">
+          <image class="icon-img" src="../static/img/mine_func_zijin.png" />
+          <label>{{ $t("fundDetails") }}</label>
+          <view class="icon"></view>
+        </view>
+        <view class="list-item" @click="goInvestmentRecords">
+          <image class="icon-img" src="../static/img/mine_func_touzi.png" />
+          <label>{{ $t("investmentRecords") }}</label>
+          <view class="icon"></view>
+        </view>
+        <view class="list-item" @click="goRevenueRecords">
+          <image class="icon-img" src="../static/img/mine_func_shouyi.png" />
+          <label>{{ $t("revenueRecords") }}</label>
+          <view class="icon"></view>
+        </view>
+        <view class="list-item" @click="goRechargeRecord">
+          <image class="icon-img" src="../static/img/mine_func_chongzhi.png" />
+          <label>{{ $t("topupRecords") }}</label>
+          <view class="icon"></view>
+        </view>
+        <view class="list-item" @click="goWithdrawalRecords">
+          <image class="icon-img" src="../static/img/mine_func_tixian.png" />
+          <label>{{ $t("WithdrawalRecords") }}</label>
+          <view class="icon"></view>
+        </view>
+      </view>
+      <view class="list">
+        <view class="list-item" @click="goAccountSafe">
+          <image class="icon-img" src="../static/img/mine_func_anquan.png" />
+          <label>{{ $t("AccountSafe") }}</label>
+          <view class="icon"></view>
+        </view>
+        <view
+          class="list-item"
+          @click="goBindBank(userData.bankName, userData.bankCardNum)"
+        >
+          <image class="icon-img" src="../static/img/mine_func_yinhang.png" />
+          <label>{{ $t("bankCardNumTitle") }}</label>
+          <view class="icon"></view>
+        </view>
+        <view class="list-item" @click="goRealName">
+          <image class="icon-img" src="../static/img/mine_func_shiming.png" />
+          <label>{{ $t("idCard") }}</label>
+          <view class="icon"></view>
+        </view>
+      </view>
+      <!-- 退出登录 -->
+      <u-button class="logout" @click="show = true">
+        {{ $t("loginOut") }}
+      </u-button>
+    </view>
     <u-modal
       :show="show"
       :title="$t('loginOut')"
@@ -152,7 +147,7 @@ export default {
   },
   onShow() {
     this.getInfo();
-    this.systemFn()
+    this.systemFn();
   },
   methods: {
     pathChange() {
@@ -255,24 +250,20 @@ export default {
         }
       });
     },
-    systemFn(){
+    systemFn() {
       this.$api.system_config().then(({ data }) => {
         if (data.code == 0) {
-          this.config = data.data
+          this.config = data.data;
         }
       });
-    }
+    },
   },
 };
 </script>
 
 <style scoped lang="scss">
-.scroll {
-  height: calc(100vh - 210rpx + var(--status-bar-height));
-}
 .wrap {
   background-color: #f8f8f9;
-  padding-bottom: 40rpx;
   .head {
     height: 258rpx;
     background-image: linear-gradient(#689cd9, #5584c2);

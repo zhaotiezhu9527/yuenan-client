@@ -10,7 +10,7 @@
       bgColor="#f6d658"
       leftIconColor="#fff"
       leftIconSize="32"
-      height="52px"
+      height="104rpx"
       titleStyle="color:#000;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>
@@ -35,7 +35,7 @@
               {{ $t("waitReview") }}
             </view>
             <view class="table-money" v-else-if="item.status === 1">
-              {{ $t('withdrawalSuccess') }}
+              {{ $t("withdrawalSuccess") }}
             </view>
             <view class="table-money" v-else-if="item.status === 2">
               {{ $t("withdrawalError") }}

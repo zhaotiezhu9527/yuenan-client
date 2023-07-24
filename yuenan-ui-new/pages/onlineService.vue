@@ -10,7 +10,7 @@
       bgColor="#4b80af"
       leftIconColor="#fff"
       leftIconSize="32"
-      height="52px"
+      height="104rpx"
       titleStyle="color:#ffffff;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>
@@ -32,16 +32,16 @@ export default {
     };
   },
   onShow() {
-    this.systemFn()
+    this.systemFn();
   },
   methods: {
-    systemFn(){
+    systemFn() {
       this.$api.system_config().then(({ data }) => {
         if (data.code == 0) {
-          this.config = data.data
+          this.config = data.data;
         }
       });
-    }
+    },
   },
 };
 </script>

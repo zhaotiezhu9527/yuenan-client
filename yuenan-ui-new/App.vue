@@ -32,7 +32,7 @@ export default {
           let new_app = data.data.version.find(
             (item) => item.platForm === uni.getSystemInfoSync().platform
           );
-          let newVersion= new_app.version.split(".").map((a) => parseInt(a));
+          let newVersion = new_app.version.split(".").map((a) => parseInt(a));
           let oldVersion = that_app.appWgtVersion
             .split(".")
             .map((a) => parseInt(a));
@@ -144,5 +144,8 @@ text {
   100% {
     transform: translateY(calc(-100% + 180rpx));
   }
+}
+.pb-100 {
+  padding-bottom: calc(100rpx + var(--status-bar-height));
 }
 </style>

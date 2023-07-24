@@ -10,7 +10,7 @@
       bgColor="#f6d658"
       leftIconColor="#fff"
       leftIconSize="32"
-      height="52px"
+      height="104rpx"
       titleStyle="color:#000;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>
@@ -32,7 +32,7 @@
             <view
               class="table-money"
               :class="item.amount > 0 ? 'green-text' : 'red-text'"
-              >{{ item.amount > 0 ? '+' + item.amount: item.amount}}</view
+              >{{ item.amount > 0 ? "+" + item.amount : item.amount }}</view
             >
             <view class="line"></view>
             <view class="table-time">{{ item.optTime }}</view>
@@ -103,7 +103,7 @@ export default {
   width: 20% !important;
   box-sizing: border-box;
 }
-.table-money{
+.table-money {
   width: 20% !important;
   padding-left: 1%;
   word-break: break-all;

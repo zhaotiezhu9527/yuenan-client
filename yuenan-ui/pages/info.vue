@@ -10,7 +10,7 @@
       bgColor="#f6d658"
       leftIconColor="#fff"
       leftIconSize="32"
-      height="52px"
+      height="104rpx"
       titleStyle="color:#000;font-weight:500;font-size:32rpx;"
     >
     </u-navbar>
@@ -141,11 +141,13 @@
         </u-row>
       </view>
     </view>
-    <view class="btn" >
-      <u-button class="btn-class" 
-      :class="items.status === 1 ? 'custom-style' : ''"
-      block 
-      @click="change(items)">
+    <view class="btn">
+      <u-button
+        class="btn-class"
+        :class="items.status === 1 ? 'custom-style' : ''"
+        block
+        @click="change(items)"
+      >
         {{ $t("immediately") }}
       </u-button>
     </view>
@@ -157,8 +159,8 @@ export default {
     return {
       items: {},
       customStyle: {
-        color: '#ccc',
-      }
+        color: "#ccc",
+      },
     };
   },
   onLoad(e) {
@@ -174,7 +176,7 @@ export default {
       return (Number(page) > 100 ? 100 : Number(page)) || 0;
     },
     change(item) {
-      if(item.status === 0){
+      if (item.status === 0) {
         uni.navigateTo({
           url: `/pages/content?id=${this.items.projectId}`,
         });
@@ -194,7 +196,7 @@ text {
     padding: 20rpx;
     box-sizing: border-box;
     background-color: #fff;
-    .img{
+    .img {
       width: 100%;
       display: block;
       margin: auto;
