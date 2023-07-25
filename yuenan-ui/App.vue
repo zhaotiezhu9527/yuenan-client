@@ -137,6 +137,12 @@ text {
 .uni-app--showleftwindow + .uni-tabbar-bottom {
   display: block !important;
 }
+html,
+body,
+.page,
+page {
+  min-height: -webkit-fill-available;
+}
 .pb-100 {
   padding-bottom: constant(safe-area-inset-bottom);
   padding-bottom: env(safe-area-inset-bottom);
