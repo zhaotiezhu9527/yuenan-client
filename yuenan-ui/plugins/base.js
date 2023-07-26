@@ -32,12 +32,8 @@ const PATH_URL =
     // ? "http://192.168.4.85:9522/" //本地测试
     ? "http://yuenanqt.juhai.xyz/yuenan-qtapi-test/" //测试
     // : "/api/";//h5打包地址
-    // :  "https://www.anke9988.com/DISOZzbHUGxkbPh2/"; //杨杨a1 安科app打包地址
-// : "/DISOZzbHUGxkbPh2/"; //杨杨a1 安科h5打包地址
-// : "https://juhai.top/"; //阿明a2 安科app打包地址
-: "http://yuenanqt.juhai.xyz/yuenan-qtapi-test/"; //app打包地址测试
-// : "/yuenan-qtapi-test/"; //app打包地址测试
-// : "/lCY45gucOU2CMttF/"; //阿明a2 安科h5打包地址
+	  : "https://www.acv8888.top/xiaoai-qtapi-prod/"; //app打包地址测试
+	  // : "/xiaoai-qtapi-prod/"; 
 
 export const upload = (params) => {
   let header = {
