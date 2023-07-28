@@ -162,13 +162,16 @@ export default {
         .user_register(DATA_OBJ)
         .then((res) => {
           if (res.data.code == 0) {
-            uni.setStorage({
-              key: "token",
-              data: res.data.token,
-              success: function () {
-                uni.switchTab({ url: "/pages/personal" });
-              },
-            });
+            this.$base.show(this.$t(res.data.msg));
+            // uni.setStorage({
+            // key: "token",
+            // data: res.data.token,
+            // success: function () {
+            setTimeout(() => {
+              uni.switchTab({ url: "/pages/login" });
+            }, 1000);
+            // },
+            // });
           }
         })
         .finally(() => {
