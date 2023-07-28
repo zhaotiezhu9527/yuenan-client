@@ -89,7 +89,7 @@
           <view class="investor">
             <view class="con">
               <text>
-                {{ $t("scale") }}：{{ item.projectAmount.toLocaleString() }}{{ $t("money") }}
+                {{ $t("scale") }}:{{ item.projectAmount.toLocaleString() }}{{ $t("money") }}
               </text>
               <text>{{ $t("interest") }}</text>
             </view>

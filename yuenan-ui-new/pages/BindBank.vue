@@ -137,7 +137,7 @@ export default {
   }
   .from-input {
     margin: 40rpx;
-    height: 90rpx;
+    height: 64rpx;
     .input-text {
       height: 64rpx;
       font-size: 28rpx;
