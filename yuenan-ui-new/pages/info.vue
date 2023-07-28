@@ -243,7 +243,7 @@ text {
       flex-direction: column;
       text {
         text-align: left;
-        font-size: 26rpx;
+        font-size: 24rpx;
         padding-bottom: 25rpx;
         font-weight: 500;
         &:nth-child(1) {
