@@ -94,7 +94,7 @@ export default {
   userAccount: "Tài khoản của tôi", 
   userLevelName: "Cấp độ người dùng", 
   usdtAmount: "Số dư tài khoản",
-  waitReturnInterest: "lợi nhuận nhận được",
+  waitReturnInterest: "Lợi nhuận nhận được",
   waitReturnPrincipal: "Số vốn nhận được",
   r: "¥", 
   m: "$", 

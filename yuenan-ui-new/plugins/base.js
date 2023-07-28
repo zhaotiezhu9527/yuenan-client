@@ -34,6 +34,7 @@ const PATH_URL =
     // : "/api/";//h5打包地址
 	  // : "https://www.acv8888.top/xiaoai-qtapi-prod/"; //app打包地址测试
 	  : "/xiaoai-qtapi-prod/"; 
+	  // : "/yuenan-qtapi-test/"; 
 
 export const upload = (params) => {
   let header = {

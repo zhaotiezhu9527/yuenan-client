@@ -132,7 +132,7 @@ text {
 }
 /deep/.uni-input-placeholder,
 /deep/.uni-input-input {
-  font-size: 32rpx !important;
+  font-size: 28rpx !important;
 }
 .uni-app--showleftwindow + .uni-tabbar-bottom {
   display: block !important;

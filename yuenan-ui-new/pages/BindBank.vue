@@ -27,17 +27,25 @@
         <view class="from-input">
           <input
             type="text"
+            v-model="realName"
             class="input-text"
-            v-model="bankName"
-            :placeholder="$t('inputBank')"
+            :placeholder="$t('inputRealName')"
+          />
+        </view>
+        <view class="from-input">
+          <input
+            type="text"
+            v-model="idCardNo"
+            class="input-text"
+            :placeholder="$t('inputidCardNo')"
           />
         </view>
         <view class="from-input">
           <input
             type="text"
             class="input-text"
-            v-model="addr"
-            :placeholder="$t('inputAddr')"
+            v-model="bankName"
+            :placeholder="$t('inputBank')"
           />
         </view>
         <view class="from-input">
@@ -67,7 +75,8 @@ export default {
     return {
       bankName: "", //银行名称
       bankCardNum: "", //银行卡号
-      addr: "", //支行
+      realName: "", //真实姓名
+      idCardNo: "", //身份证号
       loading: false,
       bindStatus: "", //银行卡绑定状态
     };
@@ -82,13 +91,16 @@ export default {
         return this.$base.show(this.$t("inputBank"));
       } else if (!this.bankCardNum) {
         return this.$base.show(this.$t("inputBankCardNum"));
-      } else if (!this.addr) {
-        return this.$base.show(this.$("inputAddr"));
+      } else if (!this.realName) {
+        return this.$base.show(this.$("inputRealName"));
+      } else if (!this.idCardNo) {
+        return this.$base.show(this.$("inputidCardNo"));
       }
       this.loading = true;
       this.$api
         .user_bindBank({
-          addr: this.addr,
+          realName: this.realName,
+          idCardNo: this.idCardNo,
           bankName: this.bankName,
           cardNo: this.bankCardNum,
         })
