@@ -22,16 +22,16 @@
             {{ $t("userLevelName") }}：{{ userData.userLevelName }}
           </label>
         </view>
-        <view class="head-money"> {{ userData.balance }} </view>
+        <view class="head-money"> {{ userData.balance.toLocaleString() }} </view>
         <view class="head-integral"> {{ $t("balance") }}</view>
       </view>
       <view class="money">
         <view class="interest">
-          <view>{{ userData.waitReturnInterest }}</view>
+          <view>{{ userData.waitReturnInterest.toLocaleString() }}</view>
           <view>{{ $t("waitReturnInterest") }}（{{ $t("money") }}）</view>
         </view>
         <view class="principal">
-          <view>{{ userData.waitReturnPrincipal }}</view>
+          <view>{{ userData.waitReturnPrincipal.toLocaleString() }}</view>
           <view>{{ $t("waitReturnPrincipal") }}（{{ $t("money") }}）</view>
         </view>
       </view>

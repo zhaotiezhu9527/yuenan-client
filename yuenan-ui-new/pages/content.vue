@@ -18,11 +18,11 @@
       <view class="card">
         <view class="item">
           <view>{{ $t("availableBalance") }} ({{ $t("money") }})</view>
-          <view>{{ infos.balance }}{{ $t("money") }}</view>
+          <view>{{ infos.balance.toLocaleString() }}{{ $t("money") }}</view>
         </view>
         <view class="item">
           <view>{{ $t("investableAmount") }} ({{ $t("money") }})</view>
-          <view>{{ items.projectAmount }}{{ $t("money") }}</view>
+          <view>{{ items.projectAmount.toLocaleString() }}{{ $t("money") }}</view>
         </view>
       </view>
     </view>

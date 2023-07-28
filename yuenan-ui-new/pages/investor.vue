@@ -45,7 +45,7 @@
             >
             <view class="li">
               <view class="num">
-                <text>{{ item.minAmount }}</text>
+                <text>{{ item.minAmount.toLocaleString() }}</text>
                 {{ $t("money") }}
               </view>
               <view class="con">{{ $t("minAmount") }}</view>
@@ -54,7 +54,7 @@
           <view class="investor">
             <view class="con">
               <text>
-                {{ $t("scale") }}：{{ item.projectAmount }}{{ $t("money") }}
+                {{ $t("scale") }}：{{ item.projectAmount.toLocaleString() }}{{ $t("money") }}
               </text>
               <text>{{ $t("interest") }}</text>
             </view>
