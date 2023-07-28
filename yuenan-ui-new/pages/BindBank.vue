@@ -25,6 +25,7 @@
       <view v-else>
         <view class="usdt-title">{{ $t("addBank") }}</view>
         <view class="from-input">
+          <image class="img" src="../static/img/bind_01.png" mode="widthFix" />
           <input
             type="text"
             v-model="realName"
@@ -33,6 +34,7 @@
           />
         </view>
         <view class="from-input">
+          <image class="img" src="../static/img/bind_01.png" mode="widthFix" />
           <input
             type="text"
             v-model="idCardNo"
@@ -41,6 +43,7 @@
           />
         </view>
         <view class="from-input">
+          <image class="img" src="../static/img/bind_01.png" mode="widthFix" />
           <input
             type="text"
             class="input-text"
@@ -49,6 +52,7 @@
           />
         </view>
         <view class="from-input">
+          <image class="img" src="../static/img/bind_01.png" mode="widthFix" />
           <input
             type="text"
             v-model="bankCardNum"
@@ -138,9 +142,15 @@ export default {
   .from-input {
     margin: 40rpx;
     height: 64rpx;
+    display: flex;
+    align-items: center;
     .input-text {
       height: 64rpx;
       font-size: 28rpx;
+      margin-left: 10rpx;
+    }
+    .img {
+      width: 40rpx;
     }
   }
   .card-box {

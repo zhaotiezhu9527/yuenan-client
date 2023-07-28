@@ -30,7 +30,6 @@
           </u-form-item>
           <u-form-item :label="$t('password')">
             <u-input
-              type="password"
               :placeholder="$t('loginPass')"
               clearable
               border="none"
@@ -38,10 +37,11 @@
               v-model="password"
             >
               <view slot="suffix" @click="pwdChange">
-                <u-icon name="eye" color="#666" size="46rpx"></u-icon>
+                <u-icon name="eye" color="#000" size="46rpx"></u-icon>
               </view>
             </u-input>
             <u-input
+              type="password"
               :placeholder="$t('loginPass')"
               clearable
               v-show="!passicon1"
@@ -49,7 +49,7 @@
               v-model="password"
             >
               <view slot="suffix" @click="pwdChange">
-                <u-icon name="eye-off" color="#666" size="46rpx"></u-icon>
+                <u-icon name="eye-off" color="#000" size="46rpx"></u-icon>
               </view>
             </u-input>
           </u-form-item>
@@ -74,7 +74,7 @@
 export default {
   data() {
     return {
-      passicon1: true,
+      passicon1: false,
       password: "",
       userPhone: "",
       loading: false,

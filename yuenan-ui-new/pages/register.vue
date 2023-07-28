@@ -37,7 +37,27 @@
             >
             </u-input>
           </u-form-item>
-          <u-form-item>
+
+          <u-form-item v-show="passicon1">
+            <template #label>
+              <image
+                class="img"
+                src="../static/img/pass2.png"
+                mode="widthFix"
+              />
+            </template>
+            <u-input
+              :placeholder="$t('loginPass')"
+              clearable
+              border="none"
+              v-model="password"
+            >
+              <view slot="suffix" @click="pwdChange1">
+                <u-icon name="eye" color="#000" size="46rpx"></u-icon>
+              </view>
+            </u-input>
+          </u-form-item>
+          <u-form-item v-show="!passicon1">
             <template #label>
               <image
                 class="img"
@@ -51,9 +71,33 @@
               clearable
               border="none"
               v-model="password"
-            ></u-input>
+            >
+              <view slot="suffix" @click="pwdChange1">
+                <u-icon name="eye-off" color="#000" size="46rpx"></u-icon>
+              </view>
+            </u-input>
           </u-form-item>
-          <u-form-item>
+
+          <u-form-item v-show="passicon2">
+            <template #label>
+              <image
+                class="img"
+                src="../static/img/pass2.png"
+                mode="widthFix"
+              />
+            </template>
+            <u-input
+              :placeholder="$t('confirmLoginPwd')"
+              clearable
+              border="none"
+              v-model="confirmLoginPwd"
+            >
+              <view slot="suffix" @click="pwdChange2">
+                <u-icon name="eye" color="#000" size="46rpx"></u-icon>
+              </view>
+            </u-input>
+          </u-form-item>
+          <u-form-item v-show="!passicon2">
             <template #label>
               <image
                 class="img"
@@ -67,9 +111,32 @@
               clearable
               border="none"
               v-model="confirmLoginPwd"
+            >
+              <view slot="suffix" @click="pwdChange2">
+                <u-icon name="eye-off" color="#000" size="46rpx"></u-icon>
+              </view>
+            </u-input>
+          </u-form-item>
+
+          <u-form-item v-show="passicon3">
+            <template #label>
+              <image
+                class="img2"
+                src="../static/img/money2.png"
+                mode="widthFix"
+              />
+            </template>
+            <u-input
+              :placeholder="$t('inputPayPwd')"
+              clearable
+              border="none"
+              v-model="payPwd"
+            >
+              <view slot="suffix" @click="pwdChange3">
+                <u-icon name="eye" color="#000" size="46rpx"></u-icon> </view
             ></u-input>
           </u-form-item>
-          <u-form-item>
+          <u-form-item v-show="!passicon3">
             <template #label>
               <image
                 class="img2"
@@ -83,8 +150,16 @@
               clearable
               border="none"
               v-model="payPwd"
+            >
+              <view slot="suffix" @click="pwdChange3">
+                <u-icon
+                  name="eye-off"
+                  color="#000"
+                  size="46rpx"
+                ></u-icon> </view
             ></u-input>
           </u-form-item>
+
           <u-form-item>
             <template #label>
               <image
@@ -131,6 +206,9 @@ export default {
       show: false,
       columns: [],
       loading: false,
+      passicon1: false,
+      passicon2: false,
+      passicon3: false,
       confirmLoginPwd: "", //确认登录密码
       payPwd: "", //支付密码
       inviteCode: "", //邀请码id
@@ -138,6 +216,15 @@ export default {
   },
   onLoad() {},
   methods: {
+    pwdChange1() {
+      this.passicon1 = !this.passicon1;
+    },
+    pwdChange2() {
+      this.passicon2 = !this.passicon2;
+    },
+    pwdChange3() {
+      this.passicon3 = !this.passicon3;
+    },
     login() {
       if (!this.userPhone || this.userPhone.length < 6) {
         return this.$base.show(this.$t("loginAccount"));
