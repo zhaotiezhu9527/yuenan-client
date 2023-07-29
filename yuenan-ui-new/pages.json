@@ -99,19 +99,19 @@
         "pagePath": "pages/index",
         "iconPath": "./static/img/index1.png",
         "selectedIconPath": "./static/img/index.png",
-        "text": "trang đầu"
+        "text": "Trang chủ"
       },
       {
         "pagePath": "pages/investor",
         "iconPath": "./static/img/money1.png",
         "selectedIconPath": "./static/img/money.png",
-        "text": "đầu tư"
+        "text": "Đấu thầu"
       },
       {
         "pagePath": "pages/about",
         "iconPath": "./static/img/find1.png",
         "selectedIconPath": "./static/img/find.png",
-        "text": "về chúng tôi"
+        "text": "Công ty"
       },
       {
         "pagePath": "pages/personal",
