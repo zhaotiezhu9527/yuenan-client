@@ -348,6 +348,7 @@ export default {
     padding-top: 40rpx;
     width: 25%;
     float: left;
+    font-weight: 600;
   }
   .txt {
     padding-top: 10rpx;
