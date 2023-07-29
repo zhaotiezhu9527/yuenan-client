@@ -18,7 +18,7 @@
         <image class="img" mode="widthFix" src="../static/img/login_logo.png" />
       </view>
       <view class="from">
-        <u-form ref="uForm" labelPosition="left" labelWidth="124">
+        <u-form ref="uForm" labelPosition="left" labelWidth="180">
           <u-form-item :label="$t('account')">
             <u-input
               type="text"

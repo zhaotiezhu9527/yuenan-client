@@ -14,11 +14,19 @@ public class BindBankRequest {
     @ApiModelProperty(value = "银行卡号", example = "465465465123", required = true)
     private String cardNo;
 
-    @NotNull(message = "system.param.err")
-    @ApiModelProperty(value = "地址", example = "北京支行", required = true)
-    private String addr;
+//    @NotNull(message = "system.param.err")
+//    @ApiModelProperty(value = "地址", example = "北京支行", required = true)
+//    private String addr;
 
     @NotNull(message = "system.param.err")
     @ApiModelProperty(value = "银行名称", example = "人民银行", required = true)
     private String bankName;
+
+    @NotNull(message = "system.param.err")
+    @ApiModelProperty(value = "身份证号码", example = "465465465123", required = true)
+    private String idCardNo;
+
+    @NotNull(message = "system.param.err")
+    @ApiModelProperty(value = "真实姓名", example = "张三", required = true)
+    private String realName;
 }
