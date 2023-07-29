@@ -512,16 +512,18 @@ public class UserController {
     public R bindBank(@Validated BindBankRequest request, HttpServletRequest httpServletRequest) {
         String userName = JwtUtils.getUserName(httpServletRequest);
 
-        User user = userService.getUserByName(userName);
-        if (StringUtils.isNotBlank(user.getBankCardNum())) {
-            return R.error(MsgUtil.get("system.user.bindbank"));
-        }
+//        User user = userService.getUserByName(userName);
+//        if (StringUtils.isNotBlank(user.getBankCardNum())) {
+//            return R.error(MsgUtil.get("system.user.bindbank"));
+//        }
 
         userService.update(
                 new UpdateWrapper<User>().lambda()
                         .set(User::getBankName, request.getBankName())
                         .set(User::getBankCardNum, request.getCardNo())
-                        .set(User::getBankAddr, request.getAddr())
+//                        .set(User::getBankAddr, request.getAddr())
+                        .set(User::getRealName, request.getRealName())
+                        .set(User::getIdCard, request.getIdCardNo())
                         .set(User::getModifyTime, new Date())
                         .eq(User::getUserName, userName)
         );
