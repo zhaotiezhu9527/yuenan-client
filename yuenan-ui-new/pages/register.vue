@@ -250,15 +250,13 @@ export default {
         .then((res) => {
           if (res.data.code == 0) {
             this.$base.show(this.$t(res.data.msg));
-            // uni.setStorage({
-            // key: "token",
-            // data: res.data.token,
-            // success: function () {
-            setTimeout(() => {
-              uni.switchTab({ url: "/pages/login" });
-            }, 1000);
-            // },
-            // });
+            uni.setStorage({
+            key: "token",
+            data: res.data.token,
+            success: function () {
+                uni.switchTab({ url: "/pages/personal" });
+              },
+            });
           }
         })
         .finally(() => {
