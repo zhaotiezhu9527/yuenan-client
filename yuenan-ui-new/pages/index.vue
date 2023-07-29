@@ -58,7 +58,7 @@
           :key="index"
           @click="routePath(item)"
         >
-          <image class="img" :src="item.img" mode="widthFix" />
+          <image class="goods-img" :src="item.img" mode="widthFix" />
           <view class="name">
             <text></text>
             <text>{{ item.projectName }}</text>
@@ -313,6 +313,11 @@ export default {
 @import "../static/list.scss";
 .list {
   background-color: #fff;
+  .goods-img {
+    display: block;
+    margin: auto;
+    width: 100%;
+  }
 }
 .page {
   background-color: #fafafa;

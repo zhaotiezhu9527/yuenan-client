@@ -196,6 +196,10 @@ text {
   font-weight: 500;
 }
 .list {
+  .img{
+    width: 100%;
+    margin: auto;
+  }
   .view {
     padding: 20rpx;
     box-sizing: border-box;

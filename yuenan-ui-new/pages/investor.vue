@@ -21,7 +21,7 @@
           :key="index"
           @click="routePath(item)"
         >
-          <image class="img" :src="item.img" mode="widthFix" />
+          <image class="goods-img" :src="item.img" mode="widthFix" />
           <view class="name">
             <text>
               <!-- {{ $t("projectName2") }} -->
@@ -133,5 +133,10 @@ export default {
 }
 .page {
   background-color: #fafafa;
+}
+.goods-img {
+  display: block;
+  margin: auto;
+  width: 100%;
 }
 </style>
