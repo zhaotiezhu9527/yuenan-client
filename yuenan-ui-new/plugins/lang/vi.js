@@ -75,7 +75,7 @@ export default {
   inputNoBalance: "Số tiền đã nhập không được lớn hơn số tiền có thể rút",
   revenueRecords: "Lịch sử thu nhập",
   projectName: "Tên dự án",
-  returnTime: "Thời gian thu nhập",
+  returnTime: "Thời gian sinh lời",
   amount: "Số tiền thu nhập",
   loadingAmount: "Lợi nhuận nhận được",
   complete: "Đã thành công",
