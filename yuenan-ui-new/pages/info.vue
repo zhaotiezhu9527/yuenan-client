@@ -149,9 +149,9 @@
       </view>
     </view>
     <view class="btn">
+      <!--  :class="items.status === 1 ? 'custom-style' : ''" -->
       <u-button
         class="btn-class"
-        :class="items.status === 1 ? 'custom-style' : ''"
         block
         @click="change(items)"
       >
@@ -164,7 +164,14 @@
 export default {
   data() {
     return {
-      items: {},
+      items: {
+        projectAmount: 0,
+        projectName: "",
+        img: "",
+        minAmount: 0,
+        incomeRate: 0,
+        limitTime: 0,
+      },
     };
   },
   onLoad(e) {
@@ -180,11 +187,11 @@ export default {
       return (Number(page) > 100 ? 100 : Number(page)) || 0;
     },
     change(item) {
-      if (item.status === 0) {
+      // if (item.status === 0) {
         uni.navigateTo({
           url: `/pages/content?id=${this.items.projectId}`,
         });
-      }
+      // }
     },
   },
 };

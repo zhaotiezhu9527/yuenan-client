@@ -10,7 +10,7 @@ export default {
   loginAccount: "Vui lòng nhập tài khoản đăng nhập",
   account: "Tài khoản",
   registerAccount: "Vui lòng nhập tài khoản đã đăng ký",
-  inputPayPwd: "Vui lòng nhập mật khẩu thanh toán",
+  inputPayPwd: "Nhập mật khẩu thanh toán",
   inputNewPayPwd: "Vui lòng nhập mật khẩu thanh toán mới",
   inputConfigPayPwd: "Vui lòng nhập đúng mật khẩu thanh toán",
   NoTwoPayPwd: "Mật khẩu thanh toán mới không được trùng với mật khẩu ban đầu",

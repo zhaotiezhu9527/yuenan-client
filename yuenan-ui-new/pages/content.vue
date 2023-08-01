@@ -30,7 +30,7 @@
       <view class="li">
         <view class="name">{{ $t("minAmount") }}</view>
         <view class="txt">
-          <text>{{ items.minAmount }}</text>
+          <text>{{ items.minAmount.toLocaleString() }}</text>
           {{ $t("money") }}
         </view>
       </view>
@@ -99,8 +99,17 @@
 export default {
   data() {
     return {
-      items: {},
-      infos: {},
+      items: {
+        projectAmount: 0,
+        projectName: "",
+        img: "",
+        minAmount: 0,
+        incomeRate: 0,
+        limitTime: 0,
+      },
+      infos: {
+        balance: 0,
+      },
       loading: false,
       form: {
         amount: "",
@@ -227,7 +236,7 @@ text {
     padding: 40rpx;
     box-sizing: border-box;
     display: flex;
-    color: #333;
+    color: #fff;
     justify-content: center;
     .item {
       width: 50%;
