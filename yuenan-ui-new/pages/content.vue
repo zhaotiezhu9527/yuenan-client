@@ -18,11 +18,11 @@
       <view class="card">
         <view class="item">
           <view>{{ $t("availableBalance") }} ({{ $t("money") }})</view>
-          <view>{{ infos.balance.toLocaleString() }}{{ $t("money") }}</view>
+          <view>{{ $u.priceFormat(infos.balance) }}{{ $t("money") }}</view>
         </view>
         <view class="item">
           <view>{{ $t("investableAmount") }} ({{ $t("money") }})</view>
-          <view>{{ items.projectAmount.toLocaleString() }}{{ $t("money") }}</view>
+          <view>{{ $u.priceFormat(items.projectAmount) }}{{ $t("money") }}</view>
         </view>
       </view>
     </view>
@@ -30,7 +30,7 @@
       <view class="li">
         <view class="name">{{ $t("minAmount") }}</view>
         <view class="txt">
-          <text>{{ items.minAmount.toLocaleString() }}</text>
+          <text>{{ $u.priceFormat(items.minAmount) }}</text>
           {{ $t("money") }}
         </view>
       </view>

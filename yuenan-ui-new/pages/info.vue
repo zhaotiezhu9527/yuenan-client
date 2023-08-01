@@ -25,7 +25,7 @@
             <view class="li">
               <view class="con">{{ $t("scale") }}</view>
               <view class="num">
-                <text>{{ items.projectAmount.toLocaleString() }} </text>
+                <text>{{ $u.priceFormat(items.projectAmount) }} </text>
                 {{ $t("money") }}
               </view>
             </view>
@@ -33,7 +33,7 @@
               <view class="con">{{ $t("share") }}</view>
               <view class="num"
                 ><text>{{
-                  (items.minAmount * (items.incomeRate / 100)).toLocaleString()
+                  $u.priceFormat((items.minAmount * (items.incomeRate / 100)))
                 }}</text
                 >{{ $t("money") }}</view
               >
@@ -50,7 +50,7 @@
             <view class="con">
               <text>{{ $t("shareType") }}：{{ $t("InterestRebate") }}</text>
               <text>
-                {{ $t("minAmount") }}：{{ items.minAmount.toLocaleString() }}{{ $t("money") }}
+                {{ $t("minAmount") }}：{{ $u.priceFormat(items.minAmount) }}{{ $t("money") }}
               </text>
               <text>
                 {{ $t("organization") }}：{{ items.guaranteeCompany }}
@@ -79,7 +79,7 @@
           <u-col class="col" span="4">{{ $t("itemAmount") }}:</u-col>
           <u-col class="col" span="8">
             <view>
-              <text class="main-c">{{ items.projectAmount.toLocaleString() }}</text
+              <text class="main-c">{{ $u.priceFormat(items.projectAmount) }}</text
               >{{ $t("money") }}{{ $t("rmb") }}
             </view>
           </u-col>
@@ -96,7 +96,7 @@
           <u-col class="col" span="4">{{ $t("investmentAmount") }}:</u-col>
           <u-col class="col" span="8">
             <text class="main-c"
-              >{{ $t("start") }}{{ items.minAmount.toLocaleString() }}{{ $t("money") }}</text
+              >{{ $t("start") }}{{ $u.priceFormat(items.minAmount) }}{{ $t("money") }}</text
             >
           </u-col>
         </u-row>
@@ -140,7 +140,7 @@
             <view>
               {{ $t("raise")
               }}<text class="main-c"
-                >{{ items.projectAmount.toLocaleString() }}{{ $t("money") }}</text
+                >{{ $u.priceFormat(items.projectAmount) }}{{ $t("money") }}</text
               >
               {{ $t("rmb") }}，{{ $t("raiseInfos") }}
             </view>
