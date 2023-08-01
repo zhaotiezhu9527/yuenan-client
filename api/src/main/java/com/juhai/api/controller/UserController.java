@@ -667,14 +667,14 @@ public class UserController {
         }
 
         // 查询是否还有待审核的订单
-        long count = withdrawService.count(
-                new LambdaQueryWrapper<Withdraw>()
-                        .eq(Withdraw::getUserName, user.getUserName())
-                        .eq(Withdraw::getStatus, 0)
-        );
-        if (count > 0) {
-            return R.error(MsgUtil.get("system.withdraw.hasorder"));
-        }
+//        long count = withdrawService.count(
+//                new LambdaQueryWrapper<Withdraw>()
+//                        .eq(Withdraw::getUserName, user.getUserName())
+//                        .eq(Withdraw::getStatus, 0)
+//        );
+//        if (count > 0) {
+//            return R.error(MsgUtil.get("system.withdraw.hasorder"));
+//        }
 
         // 扣钱
         userService.updateUserBalance(userName, amount.negate());
