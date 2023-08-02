@@ -90,7 +90,7 @@ export default {
   name: "Họ tên",
   idCardNo: "Số căn cước công dân",
   inputidCardNo: "Vui lòng nhâp số CCCD",
-  user: "Trang chủ",
+  user: "Trung tâm cá nhân",
   userAccount: "Tài khoản",
   userLevelName: "Hạng",
   usdtAmount: "Số dư tài khoản",
