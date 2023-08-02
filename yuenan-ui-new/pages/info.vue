@@ -241,7 +241,7 @@ text {
       color: #a0a0a1;
     }
     text {
-      color: #4c7eaf;
+      color: #4494ec;
     }
   }
   .investor {
@@ -292,7 +292,7 @@ text {
   padding-bottom: env(120rpx + constant(safe-area-inset-bottom));
   .name {
     text-align: center;
-    color: #4c7eaf;
+    color: #4494ec;
     font-size: 32rpx;
   }
   .row {
