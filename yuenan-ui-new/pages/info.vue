@@ -129,9 +129,13 @@
         <u-row class="row">
           <u-col class="col" span="4">{{ $t("safety") }}:</u-col>
           <u-col class="col" span="8">
-            {{ items.guaranteeCompany }}{{ $t("brushstroke") }}
-            {{ $t("oneHundred") }}
-            {{ $t("safetyInfos") }}
+            <view>
+              {{ items.guaranteeCompany }}{{ $t("brushstroke") }}
+              <text class="main-c">
+                {{ $t("oneHundred") }}
+              </text>
+               {{ $t("safetyInfos") }}
+            </view>
           </u-col>
         </u-row>
         <u-row class="row">
