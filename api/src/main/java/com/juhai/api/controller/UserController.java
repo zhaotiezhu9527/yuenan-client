@@ -291,19 +291,19 @@ public class UserController {
 
         String incKey = RedisKeyUtil.LoginPwdErrorKey(user.getUserName());
         /** 每日错误次数上限 **/
-        String dayCount = redisTemplate.opsForValue().get(incKey);
-        int count = NumberUtils.toInt(dayCount, 0);
-        Integer pwdErrCount = MapUtil.getInt(paramsMap, "login_pwd_error", 0);
-        if (pwdErrCount > 0 && count >= pwdErrCount) {
-            return R.error(MsgUtil.get("system.user.login.pwd.limit"));
-        }
+//        String dayCount = redisTemplate.opsForValue().get(incKey);
+//        int count = NumberUtils.toInt(dayCount, 0);
+//        Integer pwdErrCount = MapUtil.getInt(paramsMap, "login_pwd_error", 0);
+//        if (pwdErrCount > 0 && count >= pwdErrCount) {
+//            return R.error(MsgUtil.get("system.user.login.pwd.limit"));
+//        }
 
         // 验证密码正确
         String pwd = SecureUtil.md5(request.getLoginPwd());
         if (!StringUtils.equals(pwd, user.getLoginPwd())) {
             /** 累计密码错误 **/
-            redisTemplate.opsForValue().increment(incKey);
-            redisTemplate.expire(incKey, 1, TimeUnit.DAYS);
+//            redisTemplate.opsForValue().increment(incKey);
+//            redisTemplate.expire(incKey, 1, TimeUnit.DAYS);
             return R.error(MsgUtil.get("system.user.login.pwd.error"));
         }
         if (user.getUserStatus().intValue() == 1) {
