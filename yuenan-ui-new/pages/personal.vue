@@ -341,7 +341,7 @@ export default {
       align-items: center;
       vertical-align: middle;
       font-size: 26rpx;
-      font-weight: 500;
+      font-weight: 600;
       height: 116rpx;
       margin: 0 30rpx;
       border-bottom: 1px solid #eee;
