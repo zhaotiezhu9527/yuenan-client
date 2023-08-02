@@ -258,7 +258,7 @@ text {
       flex-direction: column;
       text {
         text-align: left;
-        font-size: 28rpx;
+        font-size: 32rpx;
         padding-bottom: 25rpx;
         font-weight: 800;
         &:nth-child(1) {
@@ -313,7 +313,7 @@ text {
   .col {
     border: 2rpx solid #000;
     padding: 15rpx 30rpx;
-    font-size: 24rpx;
+    font-size: 28rpx;
     line-height: 1.5;
     border-top: 0;
     &:nth-child(1) {
