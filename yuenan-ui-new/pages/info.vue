@@ -22,7 +22,7 @@
             <text>{{ items.projectName }}</text>
           </view>
           <view class="rate">
-            <view class="li">
+            <view class="li" style="width:40%;">
               <view class="con">{{ $t("scale") }}</view>
               <view class="num">
                 <text>{{ $u.priceFormat(items.projectAmount) }} </text>
@@ -38,7 +38,7 @@
                 >{{ $t("money") }}</view
               >
             </view>
-            <view class="li">
+            <view class="li" style="width: 25%;">
               <view class="con">{{ $t("period") }}</view>
               <view class="num"
                 ><text>{{ items.limitTime }}</text
@@ -59,10 +59,10 @@
             </view>
           </view>
           <view class="progress">
-            <view class="number">{{ items.schedule }}%</view>
+            <view class="number">{{ items.incomeRate }}%</view>
             <u-line-progress
               height="60"
-              :percentage="scheduleFn(items.schedule)"
+              :percentage="scheduleFn(items.incomeRate)"
               :showText="false"
               activeColor="#2196f3"
             ></u-line-progress>
@@ -80,7 +80,7 @@
           <u-col class="col" span="8">
             <view>
               <text class="main-c">{{ $u.priceFormat(items.projectAmount) }}</text
-              >{{ $t("money") }}{{ $t("rmb") }}
+              >{{ $t("money") }}
             </view>
           </u-col>
         </u-row>
@@ -88,7 +88,7 @@
           <u-col class="col" span="4">{{ $t("everyday") }}:</u-col>
           <u-col class="col" span="8">
             <text class="main-c">
-              {{ $t("day") }}{{ items.incomeRate }}%{{ $t("breakEven") }}
+              {{ items.incomeRate }}%{{ $t("day") }}{{ $t("breakEven") }}
             </text>
           </u-col>
         </u-row>
@@ -104,7 +104,7 @@
           <u-col class="col" span="4">{{ $t("deadline") }}:</u-col>
           <u-col class="col" span="8">
             <text class="main-c">
-              {{ $t("byStages") }}{{ items.limitTime }}{{ $t("limitTime") }}
+              {{ $t("byStages") }}{{ items.limitTime }} {{ $t("limitTime") }}
             </text>
           </u-col>
         </u-row>
@@ -130,7 +130,7 @@
           <u-col class="col" span="4">{{ $t("safety") }}:</u-col>
           <u-col class="col" span="8">
             {{ items.guaranteeCompany }}{{ $t("brushstroke") }}
-            <text class="main-c">{{ $t("oneHundred") }}</text>
+            {{ $t("oneHundred") }}
             {{ $t("safetyInfos") }}
           </u-col>
         </u-row>
@@ -142,7 +142,7 @@
               }}<text class="main-c"
                 >{{ $u.priceFormat(items.projectAmount) }}{{ $t("money") }}</text
               >
-              {{ $t("rmb") }}，{{ $t("raiseInfos") }}
+              ，{{ $t("raiseInfos") }}
             </view>
           </u-col>
         </u-row>
@@ -254,9 +254,9 @@ text {
       flex-direction: column;
       text {
         text-align: left;
-        font-size: 24rpx;
+        font-size: 28rpx;
         padding-bottom: 25rpx;
-        font-weight: 500;
+        font-weight: 800;
         &:nth-child(1) {
           padding-top: 25rpx;
         }
@@ -339,5 +339,6 @@ text {
 }
 .main-c {
   color: red;
+  display: inline-block;
 }
 </style>

@@ -150,6 +150,7 @@ body,
 .page,
 page {
   min-height: -webkit-fill-available;
+  font-family:"Times New Roman", Times, serif;
 }
 .pb-100 {
   // padding-bottom: constant(safe-area-inset-bottom);

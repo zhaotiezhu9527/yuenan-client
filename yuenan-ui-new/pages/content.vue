@@ -139,6 +139,7 @@ export default {
           }
           if (res[1].data.code == 0) {
             this.items = res[1].data.data;
+            this.form.amount = res[1].data.data.minAmount
           }
         }
       );
