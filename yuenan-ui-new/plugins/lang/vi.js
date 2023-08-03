@@ -156,13 +156,13 @@ export default {
   raise: "Gây quỹ cho dự án này ",
   raiseInfos:
     "Vốn huy động được dùng để Đấu thầu trực tiếp và vận hành dự án, là chủ Đấu thầu, cổ tức là cố định và không có rủi ro, mọi rủi ro trong hoạt động do công ty chịu và công ty bảo lãnh.",
-  brushstroke: " cung cấp mọi khoản Đấu thầu trên nền tảng Đảm bảo ",
-  oneHundred: "Đảm bảo 100% tiền gốc",
+  brushstroke: " cung cấp mọi khoản Đấu thầu trên nền tảng ",
+  oneHundred: "Đảm bảo 100% tiền gốc ",
   pettyCash:
     "Nền tảng thiết lập một khoản dự phòng rủi ro và hứa hẹn sẽ ứng trước tất cả tiền gốc;",
   safety: "An toàn và bảo mật",
   safetyInfos:
-    " tiền gốc, nền tảng xác minh thiết lập một khoản dự phòng rủi ro và hứa sẽ ứng trước đầy đủ tiền gốc",
+    "，nền tảng xác minh thiết lập một khoản dự phòng rủi ro và hứa sẽ ứng trước đầy đủ tiền gốc",
   summarize: "Tổng quan dự án",
   everyday: "Cổ tức hằng ngày",
   progress: "Tiến độ dự án",
