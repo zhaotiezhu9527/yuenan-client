@@ -124,6 +124,16 @@ public class RedisKeyUtil {
     }
 
     /**
+     * 用户支付密码错误次数上限 key
+     * @param phone 手机号
+     * @return
+     */
+    public static String PayPwdErrorKey(String phone) {
+        String template = "user:paypassword:error:{}:{}";
+        return StrUtil.format(template, DateUtil.today(), phone);
+    }
+
+    /**
      * 用户每日抢单收益 key
      * @param phone
      * @return

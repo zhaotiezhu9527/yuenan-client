@@ -7,17 +7,21 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.crypto.SecureUtil;
 import com.alibaba.fastjson2.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.juhai.api.controller.request.OrderRequest;
 import com.juhai.api.utils.JwtUtils;
 import com.juhai.commons.entity.*;
 import com.juhai.commons.service.*;
 import com.juhai.commons.utils.MsgUtil;
 import com.juhai.commons.utils.R;
+import com.juhai.commons.utils.RedisKeyUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +30,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Api(value = "订单相关", tags = "订单相关")
@@ -51,6 +56,9 @@ public class OrderController {
     @Autowired
     private UserReportService userReportService;
 
+    @Autowired
+    private StringRedisTemplate redisTemplate;
+
     @Transactional
     @ApiOperation(value = "投资")
     @PostMapping("/execute")
@@ -74,11 +82,35 @@ public class OrderController {
         // 查询用户信息
         String userName = JwtUtils.getUserName(httpServletRequest);
         User user = userService.getUserByName(userName);
+
+
+        String incKey = RedisKeyUtil.PayPwdErrorKey(user.getUserName());
+        /** 每日错误次数上限 **/
+        String dayCount = redisTemplate.opsForValue().get(incKey);
+        int count = NumberUtils.toInt(dayCount, 0);
+        Integer pwdErrCount = 5;
+        if (count >= pwdErrCount) {
+            // 锁定帐号
+            userService.update(
+                    new UpdateWrapper<User>().lambda()
+                            .set(User::getUserStatus, 1)
+                            .eq(User::getUserName, userName)
+            );
+            // 清除token
+            redisTemplate.delete(RedisKeyUtil.UserTokenKey(userName));
+            return R.error(MsgUtil.get("system.user.login.pwd.limit"));
+        }
+
         // 验证支付密码
         String pwd = SecureUtil.md5(request.getPwd());
         if (!StringUtils.equals(pwd, user.getPayPwd())) {
+            /** 累计密码错误 **/
+            redisTemplate.opsForValue().increment(incKey);
+            redisTemplate.expire(incKey, 1, TimeUnit.DAYS);
             return R.error(MsgUtil.get("system.order.paypwderror"));
         }
+
+
         if (StringUtils.isBlank(user.getRealName()) || StringUtils.isBlank(user.getIdCard())) {
             return R.error(MsgUtil.get("system.order.realname"));
         }
@@ -167,10 +199,10 @@ public class OrderController {
         obj.put("userName", order.getUserName());
         obj.put("projectName", order.getProjectName());
         obj.put("realName", order.getRealName());
-        obj.put("amount", order.getAmount());
+        obj.put("amount", order.getAmount().intValue());
         obj.put("incomeRate", order.getIncomeRate());
         obj.put("limitTime", order.getLimitTime());
-        obj.put("forecastReturnAmount", order.getForecastReturnAmount());
+        obj.put("forecastReturnAmount", order.getForecastReturnAmount().intValue());
         obj.put("IdCardNo", user.getIdCard());
         obj.put("orderTime", order.getOrderTime());
         obj.put("forecastReturnTime", order.getForecastReturnTime());
