@@ -167,10 +167,10 @@ public class OrderController {
         obj.put("userName", order.getUserName());
         obj.put("projectName", order.getProjectName());
         obj.put("realName", order.getRealName());
-        obj.put("amount", order.getAmount());
+        obj.put("amount", order.getAmount().intValue());
         obj.put("incomeRate", order.getIncomeRate());
         obj.put("limitTime", order.getLimitTime());
-        obj.put("forecastReturnAmount", order.getForecastReturnAmount());
+        obj.put("forecastReturnAmount", order.getForecastReturnAmount().intValue());
         obj.put("IdCardNo", user.getIdCard());
         obj.put("orderTime", order.getOrderTime());
         obj.put("forecastReturnTime", order.getForecastReturnTime());
