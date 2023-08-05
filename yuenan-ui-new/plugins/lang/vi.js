@@ -147,9 +147,9 @@ export default {
     "Số tiền không thể lớn hơn Số tiền có thể Đấu thầu vào dự án",
   investableAmountInfos:
     "Trong thời gian Đấu thầu, chỉ cần chưa hết sản phẩm, nhà Đấu thầu có thể thoải mái Đấu thầu.",
-  share: "Cổ tức hằng ngày",
+  share: "Chia cổ tức",
   shareType: "Cổ tức",
-  period: "Chu kỳ đầu tư",
+  period: "Chu kỳ Đấu thầu",
   risk: "Rủi ro bằng không: Bảo lãnh gốc",
   organization: "Bảo hành",
   immediately: "Đấu thầu ngay",
@@ -164,7 +164,7 @@ export default {
   safetyInfos:
     "，nền tảng xác minh thiết lập một khoản dự phòng rủi ro và hứa sẽ ứng trước đầy đủ tiền gốc",
   summarize: "Tổng quan dự án",
-  everyday: "Cổ tức hằng ngày",
+  everyday: "Chia cổ tức",
   progress: "Tiến độ dự án",
   itemAmount: "Số lượng mặt hàng",
   cutoffTime: "Thời gian giải quyết",
