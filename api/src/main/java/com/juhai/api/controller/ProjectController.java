@@ -57,7 +57,7 @@ public class ProjectController {
                 JSONObject temp = new JSONObject();
                 temp.put("projectId", project.getId());
                 temp.put("projectName", project.getProjectName());
-                temp.put("projectAmount", project.getProjectAmount().intValue());
+                temp.put("projectAmount", project.getProjectAmount());
                 temp.put("incomeRate", project.getIncomeRate());
                 temp.put("limitTime", project.getLimitTime());
                 temp.put("minAmount", project.getMinAmount().intValue());
@@ -93,7 +93,7 @@ public class ProjectController {
         JSONObject temp = new JSONObject();
         temp.put("projectId", project.getId());
         temp.put("projectName", project.getProjectName());
-        temp.put("projectAmount", project.getProjectAmount().intValue());
+        temp.put("projectAmount", project.getProjectAmount());
         temp.put("incomeRate", project.getIncomeRate());
         temp.put("limitTime", project.getLimitTime());
         temp.put("minAmount", project.getMinAmount().intValue());
