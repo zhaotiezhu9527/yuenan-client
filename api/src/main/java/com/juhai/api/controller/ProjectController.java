@@ -60,7 +60,7 @@ public class ProjectController {
                 temp.put("projectAmount", project.getProjectAmount());
                 temp.put("incomeRate", project.getIncomeRate());
                 temp.put("limitTime", project.getLimitTime());
-                temp.put("minAmount", project.getMinAmount().intValue());
+                temp.put("minAmount", project.getMinAmount());
                 temp.put("startTime", project.getStartTime());
                 temp.put("schedule", project.getSchedule());
                 temp.put("guaranteeCompany", map.get("guarantee_company"));
@@ -96,7 +96,7 @@ public class ProjectController {
         temp.put("projectAmount", project.getProjectAmount());
         temp.put("incomeRate", project.getIncomeRate());
         temp.put("limitTime", project.getLimitTime());
-        temp.put("minAmount", project.getMinAmount().intValue());
+        temp.put("minAmount", project.getMinAmount());
         temp.put("startTime", project.getStartTime());
         temp.put("schedule", project.getSchedule());
         temp.put("guaranteeCompany", map.get("guarantee_company"));
