@@ -201,4 +201,5 @@ export default {
   inputAddress: "Vui lòng nhập địa chỉ",
   inputPhoneNo: "Vui lòng nhập số điện thoại",
   inviteCodeText: "ID",
+  version: "số phiên bản",
 };

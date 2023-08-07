@@ -196,4 +196,5 @@ export default {
   inputAddress: "请输入地址",
   inputPhoneNo: "请输入手机号码",
   inviteCodeText: "邀请码ID",
+  version: "版本号",
 };
