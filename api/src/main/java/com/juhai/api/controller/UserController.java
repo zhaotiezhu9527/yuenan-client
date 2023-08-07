@@ -87,9 +87,9 @@ public class UserController {
         JSONObject temp = new JSONObject();
         temp.put("userId", user.getId());
         temp.put("userName", user.getUserName());
-        temp.put("balance", user.getBalance().intValue());
+        temp.put("balance", user.getBalance().longValue());
         temp.put("realName", user.getRealName());
-        temp.put("idCard", DesensitizedUtil.idCardNum(user.getIdCard(), 2, 2));
+//        temp.put("idCard", DesensitizedUtil.idCardNum(user.getIdCard(), 2, 2));
         temp.put("idCard", user.getIdCard());
         temp.put("inviteCode", user.getInviteCode());
         temp.put("walletAddr", DataDesensitizeUtils.desensitize(user.getWalletAddr(), 4 , 4));
@@ -122,8 +122,8 @@ public class UserController {
             waitReturnPrincipal = NumberUtil.add(waitReturnPrincipal, order.getAmount());
         }
         
-        temp.put("waitReturnInterest", waitReturnInterest.intValue());
-        temp.put("waitReturnPrincipal", waitReturnPrincipal.intValue());
+        temp.put("waitReturnInterest", waitReturnInterest.longValue());
+        temp.put("waitReturnPrincipal", waitReturnPrincipal.longValue());
 
         return R.ok().put("data", temp);
     }
@@ -149,8 +149,8 @@ public class UserController {
             waitReturnPrincipal = NumberUtil.add(waitReturnPrincipal, order.getAmount());
         }
 
-        temp.put("waitReturnInterest", waitReturnInterest.intValue());
-        temp.put("waitReturnPrincipal", waitReturnPrincipal.intValue());
+        temp.put("waitReturnInterest", waitReturnInterest.longValue());
+        temp.put("waitReturnPrincipal", waitReturnPrincipal.longValue());
 
         return R.ok().put("data", temp);
     }
@@ -370,7 +370,7 @@ public class UserController {
                 JSONObject obj = new JSONObject();
                 obj.put("remark", temp.getRemark());
 //                obj.put("remark", map.getOrDefault(temp.getOptType(), "-"));
-                obj.put("amount", temp.getOptAmount().intValue());
+                obj.put("amount", temp.getOptAmount().longValue());
                 obj.put("optTime", temp.getOptTime());
                 arr.add(obj);
             }
@@ -397,7 +397,7 @@ public class UserController {
                 JSONObject obj = new JSONObject();
                 obj.put("projectName", temp.getProjectName());
                 obj.put("orderNo", temp.getOrderNo());
-                obj.put("amount", temp.getAmount().intValue());
+                obj.put("amount", temp.getAmount().longValue());
                 obj.put("status", temp.getStatus());
                 arr.add(obj);
             }
@@ -427,7 +427,7 @@ public class UserController {
                 obj.put("projectName", temp.getProjectName());
                 obj.put("returnTime", temp.getActualReturnTime());
                 obj.put("status", temp.getStatus());
-                obj.put("amount", NumberUtil.add(temp.getAmount(), temp.getActualReturnAmount()).intValue());
+                obj.put("amount", NumberUtil.add(temp.getAmount(), temp.getActualReturnAmount()).longValue());
                 arr.add(obj);
             }
             page.setList(arr);
@@ -454,7 +454,7 @@ public class UserController {
                 obj.put("typeStr", MsgUtil.get("system.user.deposittype"));
                 obj.put("time", temp.getOptTime());
                 obj.put("status", temp.getStatus());
-                obj.put("amount", temp.getOptAmount().intValue());
+                obj.put("amount", temp.getOptAmount().longValue());
                 arr.add(obj);
             }
             page.setList(arr);
@@ -480,7 +480,7 @@ public class UserController {
                 JSONObject obj = new JSONObject();
                 obj.put("time", temp.getOptTime());
                 obj.put("status", temp.getStatus());
-                obj.put("amount", temp.getOptAmount().intValue());
+                obj.put("amount", temp.getOptAmount().longValue());
                 arr.add(obj);
             }
             page.setList(arr);
