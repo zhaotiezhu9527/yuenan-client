@@ -90,6 +90,7 @@ public class UserController {
         temp.put("balance", user.getBalance().intValue());
         temp.put("realName", user.getRealName());
         temp.put("idCard", DesensitizedUtil.idCardNum(user.getIdCard(), 2, 2));
+        temp.put("idCard", user.getIdCard());
         temp.put("inviteCode", user.getInviteCode());
         temp.put("walletAddr", DataDesensitizeUtils.desensitize(user.getWalletAddr(), 4 , 4));
         temp.put("bankCardNum", DesensitizedUtil.bankCard(user.getBankCardNum()));
@@ -282,9 +283,9 @@ public class UserController {
             return R.error(MsgUtil.get("system.user.login.noexist"));
         }
 
-        if (user.getUserStatus().intValue() == 1) {
-            return R.error(MsgUtil.get("system.user.enable"));
-        }
+//        if (user.getUserStatus().intValue() == 1) {
+//            return R.error(MsgUtil.get("system.user.enable"));
+//        }
 
         // 获取所有参数配置
         Map<String, String> paramsMap = paramterService.getAllParamByMap();

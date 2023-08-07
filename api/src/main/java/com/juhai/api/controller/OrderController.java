@@ -83,6 +83,10 @@ public class OrderController {
         String userName = JwtUtils.getUserName(httpServletRequest);
         User user = userService.getUserByName(userName);
 
+        if (user.getUserStatus().intValue() == 1) {
+            return R.error(MsgUtil.get("system.user.enable"));
+        }
+
 
         String incKey = RedisKeyUtil.PayPwdErrorKey(user.getUserName());
         /** 每日错误次数上限 **/
@@ -109,7 +113,6 @@ public class OrderController {
             redisTemplate.expire(incKey, 1, TimeUnit.DAYS);
             return R.error(MsgUtil.get("system.order.paypwderror"));
         }
-
 
         if (StringUtils.isBlank(user.getRealName()) || StringUtils.isBlank(user.getIdCard())) {
             return R.error(MsgUtil.get("system.order.realname"));
@@ -174,6 +177,9 @@ public class OrderController {
         report.setInvestmentAmount(amount);
         report.setIncomeAmount(new BigDecimal("0"));
         userReportService.insertOrUpdate(report);
+
+        // 清除错误密码
+        redisTemplate.delete(incKey);
         return R.ok();
     }
 

@@ -56,6 +56,9 @@ public class DayReturnSchedule {
             List<Account> accounts = new ArrayList<>();
             Date now = new Date();
             for (User user : users) {
+                if (user.getUserStatus().intValue() == 1) {
+                    continue;
+                }
                 BigDecimal tempBalance = NumberUtil.mul(user.getBalance(), rate);
 
                 User tempUser = new User();
