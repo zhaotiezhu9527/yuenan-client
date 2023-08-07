@@ -307,9 +307,9 @@ public class UserController {
 //            redisTemplate.expire(incKey, 1, TimeUnit.DAYS);
             return R.error(MsgUtil.get("system.user.login.pwd.error"));
         }
-        if (user.getUserStatus().intValue() == 1) {
-            return R.error(MsgUtil.get("system.user.enable"));
-        }
+//        if (user.getUserStatus().intValue() == 1) {
+//            return R.error(MsgUtil.get("system.user.enable"));
+//        }
 
         Date now = new Date();
         /** 更新最后登录时间 **/

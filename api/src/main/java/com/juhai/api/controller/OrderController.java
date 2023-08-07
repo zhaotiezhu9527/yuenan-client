@@ -101,7 +101,7 @@ public class OrderController {
                             .eq(User::getUserName, userName)
             );
             // 清除token
-            redisTemplate.delete(RedisKeyUtil.UserTokenKey(userName));
+//            redisTemplate.delete(RedisKeyUtil.UserTokenKey(userName));
             return R.error(MsgUtil.get("system.user.login.pwd.limit"));
         }
 
