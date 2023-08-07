@@ -172,5 +172,6 @@ text {
   margin-top: 400rpx;
   text-align: center;
   font-size: 24rpx;
+  color: #ddd;
 }
 </style>
