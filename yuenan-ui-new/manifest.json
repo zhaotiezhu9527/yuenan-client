@@ -2,8 +2,8 @@
     "name" : "ACV",
     "appid" : "__UNI__AA33E97",
     "description" : "",
-    "versionName" : "106",
-    "versionCode" : 106,
+    "versionName" : "107",
+    "versionCode" : 107,
     "transformPx" : false,
     /* 5+App特有相关 */
     "app-plus" : {
@@ -43,7 +43,11 @@
             },
             /* ios打包配置 */
             "ios" : {
-                "dSYMs" : false
+                "dSYMs" : false,
+                "idfa" : false,
+                "privacyDescription" : {
+                    "NSUserTrackingUsageDescription" : ""
+                }
             },
             /* SDK配置 */
             "sdkConfigs" : {
