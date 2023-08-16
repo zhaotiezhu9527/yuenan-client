@@ -114,9 +114,9 @@ public class OrderController {
             return R.error(MsgUtil.get("system.order.paypwderror"));
         }
 
-        if (StringUtils.isBlank(user.getRealName()) || StringUtils.isBlank(user.getIdCard())) {
-            return R.error(MsgUtil.get("system.order.realname"));
-        }
+//        if (StringUtils.isBlank(user.getRealName()) || StringUtils.isBlank(user.getIdCard())) {
+//            return R.error(MsgUtil.get("system.order.realname"));
+//        }
         if (user.getUserStatus().intValue() == 1) {
             return R.error(MsgUtil.get("system.user.enable"));
         }
