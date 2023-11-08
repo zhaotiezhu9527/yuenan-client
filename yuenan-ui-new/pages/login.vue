@@ -102,8 +102,8 @@ export default {
         return this.$base.show(this.$t("loginPass"));
       }
       const DATA_OBJ = {
-        loginPwd: this.password,
-        userName: this.userPhone,
+        loginPwd: this.password.replace(/\s*/g,""),
+        userName: this.userPhone.replace(/\s*/g,""),
       };
       this.loading = true;
       this.$api

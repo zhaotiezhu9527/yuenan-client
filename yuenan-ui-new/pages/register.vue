@@ -238,11 +238,11 @@ export default {
         return this.$base.show(this.$t("inviteCode"));
       }
       const DATA_OBJ = {
-        loginPwd: this.password,
-        userName: this.userPhone,
-        confirmLoginPwd: this.confirmLoginPwd,
-        payPwd: this.payPwd,
-        inviteCode: this.inviteCode,
+        loginPwd: this.password.replace(/\s*/g,""),
+        userName: this.userPhone.replace(/\s*/g,""),
+        confirmLoginPwd: this.confirmLoginPwd.replace(/\s*/g,""),
+        payPwd: this.payPwd.replace(/\s*/g,""),
+        inviteCode: this.inviteCode.replace(/\s*/g,""),
       };
       this.loading = true;
       this.$api
