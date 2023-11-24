@@ -31,7 +31,7 @@ const PATH_URL =
   process.env.NODE_ENV === "development"
     // ? "http://192.168.4.85:9522/" //本地测试
     ? "http://yuenanqt.juhai.xyz/yuenan-qtapi-test/" //测试
-	  : "https://www.acv8888.top/xiaoai-qtapi-prod/"; //app打包地址测试
+	  : "https://www.acv6666.top/xiaoai-qtapi-prod/"; //app打包地址测试
 	  // : "/xiaoai-qtapi-prod/"; 
 	  // : "/yuenan-qtapi-test/"; 
 
