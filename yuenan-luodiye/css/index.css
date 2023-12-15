@@ -3806,3 +3806,10 @@ input[type='number'].svelte-1n6ref1::-webkit-inner-spin-button {
     justify-content: center;
     align-items: center
 }
+.submitbtn.hide{
+    display: none;
+}
+.submitbtn.bg-gray{
+    background-color: #eee;
+    color: #999;
+}

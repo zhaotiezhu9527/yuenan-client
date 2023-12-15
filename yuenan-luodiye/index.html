@@ -380,11 +380,16 @@
                                                 </div><!----><!---->
                                                 </div>
                                                 <div class="submitbtn-wrapper svelte-naip4b">
-                                                    <button class="submitbtn animation    svelte-naip4b" type="button"
+                                                    <button class="submitbtn submitbtn-click animation svelte-naip4b" type="button"
                                                         std-leads-form-submit-btn="1"
                                                         style="font-size: 0.48rem; border-radius: 0.0134rem; border-style: solid; border-width: 0rem; border-color: transparent; background-color: rgb(78, 144, 255); color: rgb(255, 255, 255);"><span
                                                             class="svelte-naip4b">
                                                             Gửi ngay lập tức</span></button>
+                                                    <div class="submitbtn submitbtn-bg animation bg-gray hide svelte-naip4b"
+                                                        std-leads-form-submit-btn="1"
+                                                        style="font-size: 0.48rem; border-radius: 0.0134rem; border-style: solid; border-width: 0rem; border-color: transparent;"><span
+                                                            class="svelte-naip4b">
+                                                    loading...</span></div>
                                                     <div class="ripple-content">
                                                         <div class="water"></div>
                                                         <div class="hands"></div>
@@ -434,46 +439,63 @@
         }else{
             $("html").css("font-size", $(window).width() / 10)
         }
-        $('.submitbtn').click(function(){
-            console.log($('.user-name').val());
+        $('.submitbtn-click').click(function(){
+            $('.submitbtn-click').addClass('hide');
+            $('.submitbtn-bg').removeClass('hide');
             if(!$('.user-name').val()){
                 $('.error-msg-username').addClass('show');
+                $('.submitbtn-bg').addClass('hide');
+                $('.submitbtn-click').removeClass('hide');
                 return false
             }else{
                 $('.error-msg-username').removeClass('show');
             }
             if(!$('.user-tel').val()){
                 $('.error-msg-tel').addClass('show');
+                $('.submitbtn-bg').addClass('hide');
+                $('.submitbtn-click').removeClass('hide');
                 return false
             } else {
                 $('.error-msg-tel').removeClass('show');
             }
             if(!$('.user-age').val()){
                 $('.error-msg-age').addClass('show');
+                $('.submitbtn-bg').addClass('hide');
+                $('.submitbtn-click').removeClass('hide');
                 return false
             } else {
                 $('.error-msg-age').removeClass('show');
             }
             if(!$('.user-app').val()){
                 $('.error-msg-app').addClass('show');
+                $('.submitbtn-bg').addClass('hide');
+                $('.submitbtn-click').removeClass('hide');
                 return false
             }else{
                 $('.error-msg-app').removeClass('show');
             }
             if(!money){
                 alert('Vui lòng chọn thu nhập hàng tháng');
+                $('.submitbtn-bg').addClass('hide');
+                $('.submitbtn-click').removeClass('hide');
                 return false
             }
             if(!work){
                 alert('Vui lòng chọn một công việc');
+                $('.submitbtn-bg').addClass('hide');
+                $('.submitbtn-click').removeClass('hide');
                 return false
             }
             if(!house){
                 alert('Vui lòng chọn một bất động sản');
+                $('.submitbtn-bg').addClass('hide');
+                $('.submitbtn-click').removeClass('hide');
                 return false
             }
             if(!marriage){
                 alert('Vui lòng chọn tình trạng hôn nhân');
+                $('.submitbtn-bg').addClass('hide');
+                $('.submitbtn-click').removeClass('hide');
                 return false
             }
             $.ajax({
@@ -498,12 +520,16 @@
                 console.log(result)
                 if(result.code == -1){
                     alert(result.msg);
+                    $('.submitbtn-bg').addClass('hide');
+                    $('.submitbtn-click').removeClass('hide');
                 }else if(result.code == 0){
                     alert("Thông tin được gửi thành công")
                     $('.user-name').val("");
                     $('.user-tel').val("");
                     $('.user-age').val("");
                     $('.user-app').val("");
+                    $('.submitbtn-bg').addClass('hide');
+                    $('.submitbtn-click').removeClass('hide');
                 }
             }});
         })
