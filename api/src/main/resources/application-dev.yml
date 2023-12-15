@@ -22,7 +22,7 @@ login:
       - /user/register
       - /user/login
       - /system/config
-#      - /project/list
+      - /infomation/coll
 #      - /project/detail/*
 #token失效时间
 token:
