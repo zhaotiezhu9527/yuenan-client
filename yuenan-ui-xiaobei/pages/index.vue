@@ -265,13 +265,15 @@ export default {
           }
         });
       } else if ([this.$t("topup")].includes(name)) {
-        uni.navigateTo({
-          url: "/pages/onlineService",
-        });
+        // uni.navigateTo({
+        //   url: "/pages/onlineService",
+        // });
+        window.open(this.config.online_service);
       } else if ([this.$t("onlineService")].includes(name)) {
-        uni.navigateTo({
-          url: "/pages/onlineService",
-        });
+        // uni.navigateTo({
+        //   url: "/pages/onlineService",
+        // });
+        window.open(this.config.online_service);
       } else if ([this.$t("mywithdraw")].includes(name)) {
         if (!this.infos.bankCardNum && !this.infos.walletAddr) {
           return this.$base.show(this.$t("inputwalletType"));

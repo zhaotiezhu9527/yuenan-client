@@ -19,7 +19,7 @@
         <!-- <web-view :src="config.online_service"></web-view> -->
         <!-- <iframe :src="config.online_service" class="online"> </iframe> -->
         <!-- <iframe src="https://t.me/wmeijin" class="online"> </iframe> -->
-        <a class="cskh-a" href="https://t.me/wmeijin">CSKH</a>
+        <a class="cskh-a" :href="config.online_service" target="_blank">CSKH</a>
       </view>
       <!-- <web-view :src="config.online_service"></web-view> -->
     </view>

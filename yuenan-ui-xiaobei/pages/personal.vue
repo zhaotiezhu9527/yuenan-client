@@ -37,9 +37,10 @@
       </view>
       <!-- 按钮 -->
       <view class="button-box">
-        <u-button class="button-class" @click="pathChange">
+        <!-- <u-button class="button-class" @click="pathChange">
           {{ $t("topup") }}
-        </u-button>
+        </u-button> -->
+        <a class="button-class" :href="config.online_service" target="_blank">{{ $t("topup") }}</a>
         <u-button class="button-class" @click="goWithdraw">
           {{ $t("withdrawal") }}
         </u-button>
@@ -327,6 +328,8 @@ export default {
       height: 90rpx;
       line-height: 90rpx;
       margin: 0 1%;
+      text-align: center;
+      text-decoration: none;
     }
   }
   .list {
